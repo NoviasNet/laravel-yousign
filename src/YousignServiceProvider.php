@@ -2,9 +2,9 @@
 
 namespace Assiclick\Yousign;
 
+use Assiclick\Yousign\Commands\YousignCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Assiclick\Yousign\Commands\YousignCommand;
 
 class YousignServiceProvider extends PackageServiceProvider
 {

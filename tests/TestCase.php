@@ -2,9 +2,9 @@
 
 namespace Assiclick\Yousign\Tests;
 
+use Assiclick\Yousign\YousignServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Assiclick\Yousign\YousignServiceProvider;
 
 class TestCase extends Orchestra
 {
