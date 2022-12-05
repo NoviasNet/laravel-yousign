@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "assiclick/laravel-yousign",
+    "description": "A simple laravel wrapper for Yousign API v3",
     "keywords": [
-        ":vendor_name",
+        "Assiclick",
         "laravel",
-        ":package_slug"
+        "laravel-yousign"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/assiclick/laravel-yousign",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Gabriele Pistoia",
+            "email": "gabriele.pistoia@assiclick.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Assiclick\\Yousign\\": "src",
+            "Assiclick\\Yousign\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Assiclick\\Yousign\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Assiclick\\Yousign\\YousignServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Yousign": "Assiclick\\Yousign\\Facades\\Yousign"
             }
         }
     },
