@@ -15,7 +15,7 @@ class Client
      *
      * @throws \Exception
      */
-    public function __construct(private readonly string $apiKey = '', private readonly string $baseUrl = '',  private readonly string $brandingId = '',)
+    public function __construct(private readonly string $apiKey = '', private readonly string $baseUrl = '', private readonly string $brandingId = '')
     {
         if (empty($apiKey)) {
             throw new \Exception('You need to pass API Key');
@@ -33,7 +33,7 @@ class Client
      */
     public function request(string $method = 'post', string $url = '', array $data = []): array
     {
-        $requestUrl = $this->baseUrl . '/' . $url;
+        $requestUrl = $this->baseUrl.'/'.$url;
 
         $response = Http::withToken($this->apiKey)->$method($requestUrl, $data);
 

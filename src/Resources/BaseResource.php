@@ -16,7 +16,7 @@ abstract class BaseResource
     /**
      * Initialize Resource.
      *
-     * @param Client $client
+     * @param  Client  $client
      */
     public function __construct(Client $client)
     {
@@ -27,7 +27,7 @@ abstract class BaseResource
     {
         return $this->client->request(
             'get',
-            $this->path . '/' . $url,
+            $this->path.'/'.$url,
             [],
             $force_url
         )['data'];
