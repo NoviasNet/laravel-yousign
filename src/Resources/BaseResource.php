@@ -16,20 +16,19 @@ abstract class BaseResource
     /**
      * Initialize Resource.
      *
-     * @param  Client  $client
+     * @param Client $client
      */
     public function __construct(Client $client)
     {
         $this->client = $client;
     }
 
-    protected function getList(string $url, bool $force_url = false): array
+    protected function getList(string $url): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$url,
-            [],
-            $force_url
+            $this->path . '/' . $url,
+            []
         )['data'];
     }
 }
