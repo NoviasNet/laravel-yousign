@@ -6,7 +6,7 @@ use Exception;
 use Assiclick\Yousign\Http\Client;
 use Assiclick\Yousign\Resources\BaseResource;
 
-class Yousing
+class Yousign
 {
     protected Client $client;
 
