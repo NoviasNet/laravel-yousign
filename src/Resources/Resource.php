@@ -26,7 +26,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'put',
-            $this->path . '/' . $id,
+            $this->path.'/'.$id,
             $this->parseObjArray($data)
         )['data'];
     }
@@ -35,7 +35,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'delete',
-            $this->path . '/' . $id,
+            $this->path.'/'.$id,
             $params
         );
     }
@@ -44,7 +44,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'get',
-            $this->path . '/' . $id,
+            $this->path.'/'.$id,
             $params
         )['data'];
     }
