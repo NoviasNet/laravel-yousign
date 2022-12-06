@@ -11,7 +11,7 @@ class Config
      */
     public static function getApiKey(): string
     {
-        $apiKey = config('yousing.api_key');
+        $apiKey = config('yousign.api_key');
 
         throw_if(empty($apiKey), InvalidConfig::missingApiKey());
 
@@ -25,7 +25,7 @@ class Config
      */
     public static function getBramdingId(): string
     {
-        $brandingId = config('yousing.branding_id');
+        $brandingId = config('yousign.branding_id');
 
         // throw_if(empty($brandingId), InvalidConfig::missingBrandingId());
 
@@ -36,7 +36,7 @@ class Config
 
     public static function getBaseUrl(): string
     {
-        $baseUrl = config('yousing.base_url');
+        $baseUrl = config('yousign.base_url');
 
         throw_if(! is_string($baseUrl), InvalidConfig::wrongStringParam('endpoint'));
 
