@@ -2,11 +2,11 @@
 
 namespace Assiclick\Yousign;
 
+use Exception;
 use Assiclick\Yousign\Http\Client;
 use Assiclick\Yousign\Resources\BaseResource;
-use Exception;
 
-class YouSing
+class Yousing
 {
     protected Client $client;
 
@@ -23,11 +23,11 @@ class YouSing
     /**
      * Return an instance of a Resource based on the method called.
      *
-     * @param  mixed  $args
+     * @param mixed $args
      */
     public function __call(string $name, $args): BaseResource
     {
-        $resource = 'Assiclick\\Yousign\\Resources\\'.ucfirst($name);
+        $resource = 'Assiclick\\Yousign\\Resources\\' . ucfirst($name);
 
         /* @var BaseResource */
         return new $resource($this->client, ...$args);
