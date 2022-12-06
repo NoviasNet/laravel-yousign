@@ -23,7 +23,7 @@ class Config
     /**
      * @throws Throwable
      */
-    public static function getBramdingId(): string
+    public static function getBrandingId(): string
     {
         $brandingId = config('yousign.branding_id');
 
