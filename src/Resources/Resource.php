@@ -22,11 +22,11 @@ abstract class Resource extends BaseResource
         )['data'];
     }
 
-    public function edit(int $id, array $data): array
+    public function update(int $id, array $data): array
     {
         return $this->client->request(
-            'put',
-            $this->path.'/'.$id,
+            'patch',
+            $this->path . '/' . $id,
             $this->parseObjArray($data)
         )['data'];
     }
@@ -35,7 +35,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'delete',
-            $this->path.'/'.$id,
+            $this->path . '/' . $id,
             $params
         );
     }
@@ -44,7 +44,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$id,
+            $this->path . '/' . $id,
             $params
         )['data'];
     }
