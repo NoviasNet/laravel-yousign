@@ -2,8 +2,9 @@
 
 namespace Assiclick\Yousign;
 
-use Assiclick\Yousign\Commands\YousignCommand;
 use Spatie\LaravelPackageTools\Package;
+use Assiclick\Yousign\Commands\YousignCommand;
+use Assiclick\Yousign\Factories\YousignFactory;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class YousignServiceProvider extends PackageServiceProvider
@@ -17,9 +18,14 @@ class YousignServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-yousign')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-yousign_table')
-            ->hasCommand(YousignCommand::class);
+            ->hasConfigFile();
+        // ->hasViews()
+        // ->hasMigration('create_laravel-yousign_table')
+        // ->hasCommand(YousignCommand::class);
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(Yousign::class, fn () => YousignFactory::execute());
     }
 }
