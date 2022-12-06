@@ -28,7 +28,6 @@ class Client
      * @param  string  $method
      * @param  string  $url
      * @param  array  $data
-     * @param  bool  $forceUrl
      * @return array
      */
     public function request(string $method = 'post', string $url = '', array $data = []): array
