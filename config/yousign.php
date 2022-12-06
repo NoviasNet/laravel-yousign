@@ -18,5 +18,5 @@ return [
     /*
      * ID of the Branding to be used, found in your [Branding Dashboard](https://yousign.app/auth/settings/brandings)
      */
-    'branding_id' => env('YOUSIGN_BRANDING_ID'),
+    'branding_id' => env('YOUSIGN_BRANDING_ID', ''),
 ];
