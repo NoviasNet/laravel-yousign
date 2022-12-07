@@ -9,14 +9,14 @@ class SignatureRequest extends Resource
     /**
      * Activate a signature request.
      *
-     * @param  int   $id Signature request Id
+     * @param  int  $id Signature request Id
      * @return array
      */
     public function activate(int $id): array
     {
         return $this->client->request(
             'post',
-            $this->path . '/' . $id . '/activate',
+            $this->path.'/'.$id.'/activate',
             []
         )['data'];
     }
@@ -24,14 +24,14 @@ class SignatureRequest extends Resource
     /**
      * Cancel a signature request.
      *
-     * @param  int   $id Signature request Id
+     * @param  int  $id Signature request Id
      * @return array
      */
     public function cancel(int $id, array $params = []): array
     {
         return $this->client->request(
             'post',
-            $this->path . '/' . $id . '/activate',
+            $this->path.'/'.$id.'/activate',
             $params
         )['data'];
     }
@@ -39,14 +39,14 @@ class SignatureRequest extends Resource
     /**
      * Reactivate an expired signature request.
      *
-     * @param  int   $id Signature request Id
+     * @param  int  $id Signature request Id
      * @return array
      */
     public function reactive(int $id, array $params = []): array
     {
         return $this->client->request(
             'post',
-            $this->path . '/' . $id . '/activate',
+            $this->path.'/'.$id.'/activate',
             $params
         )['data'];
     }
@@ -54,14 +54,14 @@ class SignatureRequest extends Resource
     /**
      * Download signature request audit trails.
      *
-     * @param  int   $id Signature request Id
+     * @param  int  $id Signature request Id
      * @return array
      */
     public function downloadAudit(int $id): array
     {
         return $this->client->request(
             'get',
-            $this->path . '/' . $id . '/activate',
+            $this->path.'/'.$id.'/activate',
             []
         );
     }
@@ -69,15 +69,15 @@ class SignatureRequest extends Resource
     /**
      * List signature request documents.
      *
-     * @param  int   $id     Signature request Id
-     * @param  array $params
+     * @param  int  $id     Signature request Id
+     * @param  array  $params
      * @return array
      */
     public function getDocuments(int $id, array $params = []): array
     {
         return $this->client->request(
             'get',
-            $this->path . '/' . $id . '/documents',
+            $this->path.'/'.$id.'/documents',
             $params
         )['data'];
     }
@@ -85,15 +85,15 @@ class SignatureRequest extends Resource
     /**
      * Get a document.
      *
-     * @param  int   $signatureRequestId Signature request Id
-     * @param  int   $documentId         Document Id
+     * @param  int  $signatureRequestId Signature request Id
+     * @param  int  $documentId         Document Id
      * @return array
      */
     public function getDocument(int $signatureRequestId, int $documentId): array
     {
         return $this->client->request(
             'get',
-            $this->path . '/' . $signatureRequestId . '/documents' . $documentId,
+            $this->path.'/'.$signatureRequestId.'/documents'.$documentId,
             []
         )['data'];
     }
@@ -101,15 +101,15 @@ class SignatureRequest extends Resource
     /**
      * Get a document.
      *
-     * @param  int   $signatureRequestId Signature request Id
-     * @param  int   $documentId         Document Id
+     * @param  int  $signatureRequestId Signature request Id
+     * @param  int  $documentId         Document Id
      * @return array
      */
     public function addDocument(int $signatureRequestId, array $data): array
     {
         return $this->client->request(
             'post',
-            $this->path . '/' . $signatureRequestId . '/documents',
+            $this->path.'/'.$signatureRequestId.'/documents',
             $data
         )['data'];
     }
