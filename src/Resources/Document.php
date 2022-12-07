@@ -9,7 +9,7 @@ class Document
     /**
      * Upload a document.
      *
-     * @param  array $data
+     * @param  array  $data
      * @return array
      */
     public function upload(array $data): array
