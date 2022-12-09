@@ -22,29 +22,29 @@ abstract class Resource extends BaseResource
         )['data'];
     }
 
-    public function update(int $id, array $data): array
+    public function update(string $id, array $data): array
     {
         return $this->client->request(
             'patch',
-            $this->path.'/'.$id,
+            $this->path . '/' . $id,
             $this->parseObjArray($data)
         )['data'];
     }
 
-    public function delete(int $id, array $params = []): array
+    public function delete(string $id, array $params = []): array
     {
         return $this->client->request(
             'delete',
-            $this->path.'/'.$id,
+            $this->path . '/' . $id,
             $params
         );
     }
 
-    public function getById(int $id, array $params = []): array
+    public function getById(string $id, array $params = []): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$id,
+            $this->path . '/' . $id,
             $params
         )['data'];
     }

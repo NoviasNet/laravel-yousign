@@ -12,7 +12,7 @@ class SignatureRequest extends Resource
      * @param  int   $id Signature request Id
      * @return array
      */
-    public function activate(int $id): array
+    public function activate(string $id): array
     {
         return $this->client->request(
             'post',
@@ -27,7 +27,7 @@ class SignatureRequest extends Resource
      * @param  int   $id Signature request Id
      * @return array
      */
-    public function cancel(int $id, array $params = []): array
+    public function cancel(string $id, array $params = []): array
     {
         return $this->client->request(
             'post',
@@ -42,7 +42,7 @@ class SignatureRequest extends Resource
      * @param  int   $id Signature request Id
      * @return array
      */
-    public function reactive(int $id, array $params = []): array
+    public function reactive(string $id, array $params = []): array
     {
         return $this->client->request(
             'post',
@@ -57,7 +57,7 @@ class SignatureRequest extends Resource
      * @param  int   $id Signature request Id
      * @return array
      */
-    public function downloadAudit(int $id): array
+    public function downloadAudit(string $id): array
     {
         return $this->client->request(
             'get',
@@ -73,7 +73,7 @@ class SignatureRequest extends Resource
      * @param  array $params
      * @return array
      */
-    public function getDocuments(int $id, array $params = []): array
+    public function getDocuments(string $id, array $params = []): array
     {
         return $this->client->request(
             'get',
