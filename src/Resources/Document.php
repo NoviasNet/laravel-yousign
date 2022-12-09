@@ -12,13 +12,14 @@ class Document
      * @param  array  $data
      * @return array
      */
-    public function upload(array $data): array
+    public function upload(array $data, string $attachment): array
     {
         return $this->client->request(
             'post',
             $this->path,
-            $this->parseObjArray($data)
-        )['data'];
+            $this->parseObjArray($data),
+            $attachment
+        );
     }
 
     protected function parseObjArray(array $params): array

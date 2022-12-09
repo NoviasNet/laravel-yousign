@@ -2,66 +2,77 @@
 
 namespace Assiclick\Yousign\Resources;
 
+use Assiclick\Yousign\Http\Client;
+
 class SignatureRequest extends Resource
 {
     protected string $path = 'signature_requests';
 
     /**
+     * Initialize Resource.
+     *
+     * @param  Client  $client
+     */
+    public function __construct(Client $client, string $id = '')
+    {
+        parent::__construct($client, $id);
+    }
+
+    /**
      * Activate a signature request.
      *
-     * @param  int  $id Signature request Id
      * @return array
      */
-    public function activate(string $id): array
+    public function activate(): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$id.'/activate',
+            $this->path . '/' . $this->id . '/activate',
             []
-        )['data'];
+        );
     }
 
     /**
      * Cancel a signature request.
      *
-     * @param  int  $id Signature request Id
+     * @param  int   $id Signature request Id
      * @return array
      */
-    public function cancel(string $id, array $params = []): array
+    public function cancel(array $params = []): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$id.'/activate',
+            $this->path . '/' . $this->id . '/activate',
             $params
-        )['data'];
+        );
     }
 
     /**
      * Reactivate an expired signature request.
      *
-     * @param  int  $id Signature request Id
+     * @param  int   $id Signature request Id
      * @return array
      */
-    public function reactive(string $id, array $params = []): array
+    public function reactive(array $params = []): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$id.'/activate',
+            $this->path . '/' . $this->id . '/activate',
             $params
-        )['data'];
+        );
     }
 
     /**
      * Download signature request audit trails.
      *
-     * @param  int  $id Signature request Id
+     * @param  string   $id Signature request Id
      * @return array
      */
-    public function downloadAudit(string $id): array
+    public function downloadAudit(): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$id.'/activate',
+            $this->path . '/' . $this->id . '/audit_trails/download',
             []
         );
     }
@@ -69,48 +80,46 @@ class SignatureRequest extends Resource
     /**
      * List signature request documents.
      *
-     * @param  int  $id     Signature request Id
-     * @param  array  $params
+     * @param  array $params
      * @return array
      */
-    public function getDocuments(string $id, array $params = []): array
+    public function getDocuments(array $params = []): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$id.'/documents',
+            $this->path . '/' . $this->id . '/documents',
             $params
-        )['data'];
+        );
     }
 
     /**
-     * Get a document.
+     * Get a document of Signature Request.
      *
-     * @param  int  $signatureRequestId Signature request Id
-     * @param  int  $documentId         Document Id
+     * @param  string    $documentId         Document Id
      * @return array
      */
-    public function getDocument(int $signatureRequestId, int $documentId): array
+    public function getDocument(string $documentId): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$signatureRequestId.'/documents'.$documentId,
+            $this->path . '/' . $this->id . '/documents' . $documentId,
             []
-        )['data'];
+        );
     }
 
     /**
-     * Get a document.
+     * Add a document to the Signature Request.
      *
-     * @param  int  $signatureRequestId Signature request Id
-     * @param  int  $documentId         Document Id
+     * @param  int    $documentId         Document Id
      * @return array
      */
-    public function addDocument(int $signatureRequestId, array $data): array
+    public function addDocument(array $data, string $attachment): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$signatureRequestId.'/documents',
-            $data
-        )['data'];
+            $this->path . '/' . $this->id . '/documents',
+            $data,
+            $attachment
+        );
     }
 }

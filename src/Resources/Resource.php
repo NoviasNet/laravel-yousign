@@ -2,8 +2,20 @@
 
 namespace Assiclick\Yousign\Resources;
 
+use Assiclick\Yousign\Http\Client;
+
 abstract class Resource extends BaseResource
 {
+    /**
+     * Initialize Resource.
+     *
+     * @param  Client  $client
+     */
+    public function __construct(Client $client, protected string $id = '')
+    {
+        parent::__construct($client);
+    }
+
     public function all(array $params = []): array
     {
         return $this->client->request(
@@ -22,31 +34,31 @@ abstract class Resource extends BaseResource
         )['data'];
     }
 
-    public function update(string $id, array $data): array
+    public function update(array $data): array
     {
         return $this->client->request(
             'patch',
-            $this->path . '/' . $id,
+            $this->path . '/' . $this->id,
             $this->parseObjArray($data)
-        )['data'];
-    }
-
-    public function delete(string $id, array $params = []): array
-    {
-        return $this->client->request(
-            'delete',
-            $this->path . '/' . $id,
-            $params
         );
     }
 
-    public function getById(string $id, array $params = []): array
+    public function delete(): array
+    {
+        return $this->client->request(
+            'delete',
+            $this->path . '/' . $this->id,
+            []
+        );
+    }
+
+    public function fetch(): array
     {
         return $this->client->request(
             'get',
-            $this->path . '/' . $id,
-            $params
-        )['data'];
+            $this->path . '/' . $this->id,
+            []
+        );
     }
 
     protected function parseObjArray(array $params): array
