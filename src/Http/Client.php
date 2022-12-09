@@ -30,11 +30,21 @@ class Client
      * @param  array  $data
      * @return array
      */
-    public function request(string $method = 'post', string $url = '', array $data = []): array
+    public function request(string $method = 'post', string $url = '', array $data = [], string $attachment = null): array
     {
         $requestUrl = $this->baseUrl.'/'.$url;
 
-        $response = Http::withToken($this->apiKey)->$method($requestUrl, $data);
+        $http = Http::withToken($this->apiKey);
+
+        if (! is_null($attachment)) {
+            $http->attach(
+                'file', file_get_contents($attachment), $data['file']
+            );
+        }
+
+        $response = $http->$method($requestUrl, $data);
+
+        return $response->json();
 
         return $response->throw()->json();
     }
