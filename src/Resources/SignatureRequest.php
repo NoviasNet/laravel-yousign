@@ -11,7 +11,7 @@ class SignatureRequest extends Resource
     /**
      * Initialize Resource.
      *
-     * @param  Client  $client
+     * @param Client $client
      */
     public function __construct(Client $client, string $id = '')
     {
@@ -27,7 +27,7 @@ class SignatureRequest extends Resource
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$this->id.'/activate',
+            $this->path . '/' . $this->id . '/activate',
             []
         );
     }
@@ -35,14 +35,14 @@ class SignatureRequest extends Resource
     /**
      * Cancel a signature request.
      *
-     * @param  array  $params
+     * @param  array $params
      * @return array
      */
     public function cancel(array $params = []): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$this->id.'/activate',
+            $this->path . '/' . $this->id . '/activate',
             $params
         );
     }
@@ -50,14 +50,14 @@ class SignatureRequest extends Resource
     /**
      * Reactivate an expired signature request.
      *
-     * @param  array  $params
+     * @param  array $params
      * @return array
      */
     public function reactive(array $params = []): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$this->id.'/activate',
+            $this->path . '/' . $this->id . '/activate',
             $params
         );
     }
@@ -71,7 +71,7 @@ class SignatureRequest extends Resource
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id.'/audit_trails/download',
+            $this->path . '/' . $this->id . '/audit_trails/download',
             []
         );
     }
@@ -79,14 +79,14 @@ class SignatureRequest extends Resource
     /**
      * List signature request documents.
      *
-     * @param  array  $params
+     * @param  array $params
      * @return array
      */
     public function getDocuments(array $params = []): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id.'/documents',
+            $this->path . '/' . $this->id . '/documents',
             $params
         );
     }
@@ -94,14 +94,14 @@ class SignatureRequest extends Resource
     /**
      * Get a document of Signature Request.
      *
-     * @param  string  $documentId Document Id
+     * @param  string $documentId Document Id
      * @return array
      */
     public function getDocument(string $documentId): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id.'/documents'.$documentId,
+            $this->path . '/' . $this->id . '/documents/' . $documentId,
             []
         );
     }
@@ -110,14 +110,14 @@ class SignatureRequest extends Resource
      * Add a document to the Signature Request.
      *
      * @param  array  $data
-     * @param  string  $attachment
+     * @param  string $attachment
      * @return array
      */
     public function addDocument(array $data, string $attachment): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$this->id.'/documents',
+            $this->path . '/' . $this->id . '/documents',
             $data,
             $attachment
         );
@@ -126,14 +126,14 @@ class SignatureRequest extends Resource
     /**
      * Create a new signer.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return array
      */
     public function createSigner(array $data): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$this->id.'/signers',
+            $this->path . '/' . $this->id . '/signers',
             $data
         );
     }
@@ -147,7 +147,7 @@ class SignatureRequest extends Resource
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id.'/signers',
+            $this->path . '/' . $this->id . '/signers',
             []
         );
     }
@@ -155,14 +155,14 @@ class SignatureRequest extends Resource
     /**
      * Get a signer.
      *
-     * @param  string  $signerId
+     * @param  string $signerId
      * @return array
      */
     public function getSigner(string $signerId): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id.'/signers/'.$signerId,
+            $this->path . '/' . $this->id . '/signers/' . $signerId,
             []
         );
     }
@@ -170,14 +170,14 @@ class SignatureRequest extends Resource
     /**
      * Delete a signer.
      *
-     * @param  string  $signerId
+     * @param  string $signerId
      * @return array
      */
     public function deleteSigner(string $signerId): array
     {
         return $this->client->request(
             'delete',
-            $this->path.'/'.$this->id.'/signers/'.$signerId,
+            $this->path . '/' . $this->id . '/signers/' . $signerId,
             []
         );
     }
@@ -185,14 +185,14 @@ class SignatureRequest extends Resource
     /**
      * update a signer.
      *
-     * @param  string  $signerId
+     * @param  string $signerId
      * @return array
      */
     public function updateSigner(string $signerId): array
     {
         return $this->client->request(
             'patch',
-            $this->path.'/'.$this->id.'/signers/'.$signerId,
+            $this->path . '/' . $this->id . '/signers/' . $signerId,
             []
         );
     }
@@ -200,14 +200,14 @@ class SignatureRequest extends Resource
     /**
      * Download audit trail PDF.
      *
-     * @param  string  $signerId
+     * @param  string $signerId
      * @return array
      */
     public function downloadSignerAudit(string $signerId): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id.'/signers/'.$signerId.'/audit_trails/download',
+            $this->path . '/' . $this->id . '/signers/' . $signerId . '/audit_trails/download',
             []
         );
     }
@@ -215,14 +215,14 @@ class SignatureRequest extends Resource
     /**
      * Get signer audit trail.
      *
-     * @param  string  $signerId
+     * @param  string $signerId
      * @return array
      */
     public function getSignerAudit(string $signerId): array
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id.'/signers/'.$signerId.'/audit_trails',
+            $this->path . '/' . $this->id . '/signers/' . $signerId . '/audit_trails',
             []
         );
     }
