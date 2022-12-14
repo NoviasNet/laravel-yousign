@@ -28,9 +28,9 @@ class Client
      * @param  string  $method
      * @param  string  $url
      * @param  array  $data
-     * @return array
+     * @return null|array 
      */
-    public function request(string $method = 'post', string $url = '', array $data = [], string $attachment = null): array
+    public function request(string $method = 'post', string $url = '', array $data = [], string $attachment = null): ?array
     {
         $requestUrl = $this->baseUrl.'/'.$url;
 
@@ -43,8 +43,6 @@ class Client
         }
 
         $response = $http->$method($requestUrl, $data);
-
-        return $response->json();
 
         return $response->throw()->json();
     }
