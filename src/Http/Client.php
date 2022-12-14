@@ -28,7 +28,7 @@ class Client
      * @param  string  $method
      * @param  string  $url
      * @param  array  $data
-     * @return null|array 
+     * @return null|array
      */
     public function request(string $method = 'post', string $url = '', array $data = [], string $attachment = null): ?array
     {
