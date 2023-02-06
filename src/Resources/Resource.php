@@ -9,7 +9,7 @@ abstract class Resource extends BaseResource
     /**
      * Initialize Resource.
      *
-     * @param  Client  $client
+     * @param Client $client
      */
     public function __construct(Client $client, protected string $id = '')
     {
@@ -38,16 +38,16 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'patch',
-            $this->path.'/'.$this->id,
+            $this->path . '/' . $this->id,
             $this->parseObjArray($data)
         );
     }
 
-    public function delete(): array
+    public function delete(): ?array
     {
         return $this->client->request(
             'delete',
-            $this->path.'/'.$this->id,
+            $this->path . '/' . $this->id,
             []
         );
     }
@@ -56,7 +56,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id,
+            $this->path . '/' . $this->id,
             []
         );
     }

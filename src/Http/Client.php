@@ -2,6 +2,7 @@
 
 namespace Assiclick\Yousign\Http;
 
+use Exception;
 use Illuminate\Support\Facades\Http;
 
 class Client
@@ -9,40 +10,42 @@ class Client
     /**
      * Auth constructor.
      *
-     * @param  string  $apiKey
-     * @param  string  $baseUrl
-     * @param  string  $brandingId
+     * @param string $apiKey
+     * @param string $baseUrl
+     * @param string $brandingId
      *
-     * @throws \Exception
+     * @throws Exception
      */
-    public function __construct(private readonly string $apiKey = '', private readonly string $baseUrl = '', private readonly string $brandingId = '')
+    public function __construct(private string $apiKey = '', private string $baseUrl = '', private string $brandingId = '')
     {
         if (empty($apiKey)) {
-            throw new \Exception('You need to pass API Key');
+            throw new Exception('You need to pass API Key');
         }
     }
 
     /**
      * Exec API call.
      *
-     * @param  string  $method
-     * @param  string  $url
-     * @param  array  $data
+     * @param  string     $method
+     * @param  string     $url
+     * @param  array      $data
      * @return null|array
      */
-    public function request(string $method = 'post', string $url = '', array $data = [], string $attachment = null): ?array
+    public function request(string $method = 'post', string $url = '', array $data = [], ?string $attachment = null): ?array
     {
-        $requestUrl = $this->baseUrl.'/'.$url;
+        $requestUrl = $this->baseUrl . '/' . $url;
 
         $http = Http::withToken($this->apiKey);
 
         if (! is_null($attachment)) {
             $http->attach(
-                'file', file_get_contents($attachment), $data['file']
+                'file',
+                file_get_contents($attachment),
+                $data['file']
             );
         }
 
-        $response = $http->$method($requestUrl, $data);
+        $response = $http->{$method}($requestUrl, $data);
 
         return $response->throw()->json();
     }
