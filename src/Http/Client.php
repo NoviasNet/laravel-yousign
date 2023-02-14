@@ -25,13 +25,14 @@ class Client
 
     /**
      * Exec API call.
-     *
-     * @param  string     $method
-     * @param  string     $url
-     * @param  array      $data
-     * @return null|array
+     * @param  string      $method
+     * @param  string      $url
+     * @param  array       $data
+     * @param  string      $return
+     * @param  null|string $attachment
+     * @return mixed
      */
-    public function request(string $method = 'post', string $url = '', array $data = [], ?string $attachment = null): ?array
+    public function request(string $method = 'post', string $url = '', array $data = [], string $return = 'json', ?string $attachment = null)// : ?array
     {
         $requestUrl = $this->baseUrl . '/' . $url;
 
@@ -47,6 +48,14 @@ class Client
 
         $response = $http->{$method}($requestUrl, $data);
 
-        return $response->throw()->json();
+        if ($return === 'raw') {
+            return $response->toPsrResponse()->getBody();
+        }
+
+        if ($return === 'full') {
+            return $response->throw();
+        }
+
+        return $response->throw()->{$return}();
     }
 }
