@@ -11,6 +11,8 @@ class SignatureRequest extends Resource
 
     /**
      * Initialize Resource.
+     *
+     * @param  Client  $client
      */
     public function __construct(Client $client, string $id = '')
     {
@@ -31,6 +33,9 @@ class SignatureRequest extends Resource
 
     /**
      * Cancel a signature request.
+     *
+     * @param  array  $params
+     * @return array
      */
     public function cancel(array $params): array
     {
@@ -43,6 +48,9 @@ class SignatureRequest extends Resource
 
     /**
      * Reactivate an expired signature request.
+     *
+     * @param  array  $params
+     * @return array
      */
     public function reactive(array $params): array
     {
@@ -70,6 +78,9 @@ class SignatureRequest extends Resource
 
     /**
      * List signature request documents.
+     *
+     * @param  array  $params
+     * @return array
      */
     public function getDocuments(array $params = []): array
     {
@@ -84,6 +95,7 @@ class SignatureRequest extends Resource
      * Get a document of Signature Request.
      *
      * @param  string  $documentId Document Id
+     * @return array
      */
     public function getDocument(string $documentId): array
     {
@@ -96,6 +108,10 @@ class SignatureRequest extends Resource
 
     /**
      * Add a document to the Signature Request.
+     *
+     * @param  array  $data
+     * @param  string  $attachment
+     * @return array
      */
     public function addDocument(array $data, string $attachment): array
     {
@@ -112,6 +128,7 @@ class SignatureRequest extends Resource
      * Delete a document of Signature Request.
      *
      * @param  string  $documentId Document Id
+     * @return array
      */
     public function deleteDocument(string $documentId): array
     {
@@ -124,6 +141,9 @@ class SignatureRequest extends Resource
 
     /**
      * Update a document.
+     *
+     * @param  array  $data
+     * @return array
      */
     public function updateDocument(array $data): array
     {
@@ -136,6 +156,10 @@ class SignatureRequest extends Resource
 
     /**
      * Replace a document.
+     *
+     * @param  array  $data
+     * @param  string  $attachment
+     * @return array
      */
     public function replaceDocument(array $data, string $attachment): array
     {
@@ -152,6 +176,7 @@ class SignatureRequest extends Resource
      * Download signature request documents.
      *
      * @param  string  $documentId Document Id
+     * @return Response
      */
     public function downloadDocuments(array $data = []): Response
     {
@@ -165,6 +190,9 @@ class SignatureRequest extends Resource
 
     /**
      * Create a new signer.
+     *
+     * @param  array  $data
+     * @return array
      */
     public function createSigner(array $data): array
     {
@@ -189,6 +217,9 @@ class SignatureRequest extends Resource
 
     /**
      * Get a signer.
+     *
+     * @param  string  $signerId
+     * @return array
      */
     public function getSigner(string $signerId): array
     {
@@ -201,6 +232,9 @@ class SignatureRequest extends Resource
 
     /**
      * Delete a signer.
+     *
+     * @param  string  $signerId
+     * @return array
      */
     public function deleteSigner(string $signerId): array
     {
@@ -213,6 +247,9 @@ class SignatureRequest extends Resource
 
     /**
      * update a signer.
+     *
+     * @param  string  $signerId
+     * @return array
      */
     public function updateSigner(string $signerId): array
     {
@@ -225,6 +262,9 @@ class SignatureRequest extends Resource
 
     /**
      * Download audit trail PDF.
+     *
+     * @param  string  $signerId
+     * @return array
      */
     public function downloadSignerAudit(string $signerId): array
     {
@@ -237,6 +277,9 @@ class SignatureRequest extends Resource
 
     /**
      * Get signer audit trail.
+     *
+     * @param  string  $signerId
+     * @return array
      */
     public function getSignerAudit(string $signerId): array
     {
