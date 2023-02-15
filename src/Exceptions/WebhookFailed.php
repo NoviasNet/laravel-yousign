@@ -9,7 +9,7 @@ class WebhookFailed extends Exception
 {
     public static function jobClassDoesNotExist(string $jobClass, WebhookCall $webhookCall): self
     {
-        return new static("Could not process webhook id `{$webhookCall->id}` of type `{$webhookCall->type} because the configured jobclass `{$jobClass}` does not exist.");
+        return new static("Could not process webhook id `{$webhookCall->id}` of event `{$webhookCall->event_name} because the configured jobclass `{$jobClass}` does not exist.");
     }
 
     public static function missingEvent(WebhookCall $webhookCall): self

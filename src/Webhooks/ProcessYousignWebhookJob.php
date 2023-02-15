@@ -28,9 +28,9 @@ class ProcessYousignWebhookJob extends ProcessWebhookJob
         dispatch(new $jobClass($this->webhookCall));
     }
 
-    protected function determineJobClass(string $eventType): string
+    protected function determineJobClass(string $eventName): string
     {
-        $jobConfigKey = str_replace('.', '_', $eventType);
+        $jobConfigKey = str_replace('.', '_', $eventName);
 
         $defaultJob = config('yousign.webhooks.default_job', '');
 

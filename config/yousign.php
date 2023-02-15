@@ -28,7 +28,7 @@ return [
         'signing_secret' => env('YOUSIGN_WEBHOOK_SECRET'),
 
         /*
-         * You can define a default job that should be run for all other Stripe event type
+         * You can define a default job that should be run for all other Yousign event name
          * without a job defined in next configuration.
          * You may leave it empty to store the job in database but without processing it.
          */
@@ -36,9 +36,9 @@ return [
 
         /*
          * You can define the job that should be run when a certain webhook hits your application
-         * here. The key is the name of the Yousign event type with the `.` replaced by a `_`.
+         * here. The key is the name of the Yousign event with the `.` replaced by a `_`.
          *
-         * You can find a list of Stripe webhook types here:
+         * You can find a list of Yousign webhook events here:
          * https://developers.yousign.com/docs/webhooks.
          */
         'jobs' => [
