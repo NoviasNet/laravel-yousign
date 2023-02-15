@@ -55,7 +55,7 @@ return [
         /*
          * This class determines if the webhook call should be stored and processed.
          */
-        'profile' => \Spatie\StripeWebhooks\StripeWebhookProfile::class,
+        'profile' => \Assiclick\Yousign\Webhooks\YousingWebhookProfile::class,
 
         /*
          * When disabled, the package will not verify if the signature is valid.
