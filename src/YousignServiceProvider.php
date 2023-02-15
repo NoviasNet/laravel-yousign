@@ -4,6 +4,7 @@ namespace Assiclick\Yousign;
 
 use Assiclick\Yousign\Commands\YousignCommand;
 use Assiclick\Yousign\Factories\YousignFactory;
+use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -22,6 +23,10 @@ class YousignServiceProvider extends PackageServiceProvider
         // ->hasViews()
         // ->hasMigration('create_laravel-yousign_table')
         // ->hasCommand(YousignCommand::class);
+
+        Route::macro('yousignWebhooks', function ($url) {
+            return Route::post($url, '\Assiclick\Yousign\Webhooks\YousignWebhooksController');
+        });
     }
 
     public function packageRegistered(): void
