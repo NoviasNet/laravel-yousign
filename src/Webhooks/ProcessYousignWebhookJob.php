@@ -5,17 +5,17 @@ namespace Assiclick\Yousign\Webhooks;
 use Assiclick\Yousign\Exceptions\WebhookFailed;
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob;
 
-class ProcessStripeWebhookJob extends ProcessWebhookJob
+class ProcessYousignWebhookJob extends ProcessWebhookJob
 {
     public function handle()
     {
-        if (! isset($this->webhookCall->payload['type']) || $this->webhookCall->payload['type'] === '') {
-            throw WebhookFailed::missingType($this->webhookCall);
+        if (! isset($this->webhookCall->payload['event_name']) || $this->webhookCall->payload['event_name'] === '') {
+            throw WebhookFailed::missingEvent($this->webhookCall);
         }
 
-        event("yousign-webhooks::{$this->webhookCall->payload['type']}", $this->webhookCall);
+        event("yousign-webhooks::{$this->webhookCall->payload['event_name']}", $this->webhookCall);
 
-        $jobClass = $this->determineJobClass($this->webhookCall->payload['type']);
+        $jobClass = $this->determineJobClass($this->webhookCall->payload['event_name']);
 
         if ($jobClass === '') {
             return;
@@ -32,8 +32,8 @@ class ProcessStripeWebhookJob extends ProcessWebhookJob
     {
         $jobConfigKey = str_replace('.', '_', $eventType);
 
-        $defaultJob = config('yousing.webhooks.default_job', '');
+        $defaultJob = config('yousign.webhooks.default_job', '');
 
-        return config("yousing.webhooks.jobs.{$jobConfigKey}", $defaultJob);
+        return config("yousign.webhooks.jobs.{$jobConfigKey}", $defaultJob);
     }
 }

@@ -10,7 +10,6 @@ class YousingWebhookProfile implements WebhookProfile
 {
     public function shouldProcess(Request $request): bool
     {
-        return true;
-        // return ! WebhookCall::where('event_name', 'stripe')->where('payload->id', $request->get('id'))->exists();
+        return ! WebhookCall::where('event_name', 'yousign')->where('payload->id', $request->get('id'))->exists();
     }
 }

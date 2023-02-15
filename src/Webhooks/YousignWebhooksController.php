@@ -15,11 +15,11 @@ class YousignWebhooksController
             'signing_secret' => ($configKey) ?
                 config('yousign.webhooks.signing_secret_' . $configKey) :
                 config('yousign.webhooks.signing_secret'),
-            'signature_header_name' => 'Stripe-Signature',
-            'signature_validator' => StripeSignatureValidator::class,
-            'webhook_profile' => config('stripe-webhooks.profile'),
-            'webhook_model' => config('stripe-webhooks.model'),
-            'process_webhook_job' => ProcessStripeWebhookJob::class,
+            'signature_header_name' => 'x-yousign-signature-256',
+            'signature_validator' => YousignSignatureValidator::class,
+            'webhook_profile' => config('yousign.webhooks.profile'),
+            'webhook_model' => config('yousign.webhooks.model'),
+            'process_webhook_job' => ProcessYousignWebhookJob::class,
         ]);
 
         return (new WebhookProcessor($request, $webhookConfig))->process();
