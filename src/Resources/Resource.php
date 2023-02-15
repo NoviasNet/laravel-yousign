@@ -8,8 +8,6 @@ abstract class Resource extends BaseResource
 {
     /**
      * Initialize Resource.
-     *
-     * @param  Client  $client
      */
     public function __construct(Client $client, protected string $id = '')
     {

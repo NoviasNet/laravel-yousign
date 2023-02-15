@@ -10,9 +10,6 @@ class Client
     /**
      * Auth constructor.
      *
-     * @param string $apiKey
-     * @param string $baseUrl
-     * @param string $brandingId
      *
      * @throws Exception
      */
@@ -25,16 +22,12 @@ class Client
 
     /**
      * Exec API call.
-     * @param  string      $method
-     * @param  string      $url
-     * @param  array       $data
-     * @param  string      $return
-     * @param  null|string $attachment
+     *
      * @return mixed
      */
     public function request(string $method = 'post', string $url = '', array $data = [], string $return = 'json', ?string $attachment = null)// : ?array
     {
-        $requestUrl = $this->baseUrl . '/' . $url;
+        $requestUrl = $this->baseUrl.'/'.$url;
 
         $http = Http::withToken($this->apiKey);
 
