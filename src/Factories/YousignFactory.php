@@ -2,8 +2,8 @@
 
 namespace Assiclick\Yousign\Factories;
 
-use Assiclick\Yousign\Yousign;
 use Exception;
+use Assiclick\Yousign\Yousign;
 
 class YousignFactory
 {

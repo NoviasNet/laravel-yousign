@@ -22,7 +22,7 @@ abstract class BaseResource
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$url,
+            $this->path . '/' . $url,
             []
         )['data'];
     }

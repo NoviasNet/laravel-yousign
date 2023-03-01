@@ -4,8 +4,8 @@ namespace Assiclick\Yousign\Webhooks;
 
 use Exception;
 use Illuminate\Http\Request;
-use Spatie\WebhookClient\SignatureValidator\SignatureValidator;
 use Spatie\WebhookClient\WebhookConfig;
+use Spatie\WebhookClient\SignatureValidator\SignatureValidator;
 
 class YousignSignatureValidator implements SignatureValidator
 {
@@ -27,7 +27,7 @@ class YousignSignatureValidator implements SignatureValidator
         //     return false;
         // }
 
-        $computedSignature = 'sha256='.hash_hmac('sha256', $request->getContent(), $secret);
+        $computedSignature = 'sha256=' . hash_hmac('sha256', $request->getContent(), $secret);
 
         return hash_equals($signature, $computedSignature);
     }
