@@ -28,41 +28,41 @@ class BadRequestErrorHandler extends AbstractErrorHandler
     protected function handleErrorMessages(array $params)
     {
         return collect($params)->map(function ($param) {
-            return $this->convertErrorName($param->name) . ' - ' . $this->convertErrorReason($param->reason);
+            return $param['name'] . ': ' . $param['reason'];
         })->implode(', ');
     }
 
-    private function convertErrorName($name): ?string
-    {
-        if ($name == 'info[email]') {
-            return 'Signer email';
-        }
+    // private function convertErrorName($name): ?string
+    // {
+    //     if ($name == 'info[email]') {
+    //         return 'Signer email';
+    //     }
 
-        if ($name == 'info[phone_number]') {
-            return 'Signer phone number';
-        }
+    //     if ($name == 'info[phone_number]') {
+    //         return 'Signer phone number';
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 
-    private function convertErrorReason($reason): ?string
-    {
-        if ($reason == 'This field is missing.') {
-            return 'Missing mandatory field';
-        }
+    // private function convertErrorReason($reason): ?string
+    // {
+    //     if ($reason == 'This field is missing.') {
+    //         return 'Missing mandatory field';
+    //     }
 
-        if ($reason == 'This value is not a valid email address.') {
-            return 'Not valid';
-        }
+    //     if ($reason == 'This value is not a valid email address.') {
+    //         return 'Not valid';
+    //     }
 
-        if ($reason == 'This field is mandatory with this authentication mode (otp_sms).') {
-            return 'Missing mandatory field';
-        }
+    //     if ($reason == 'This field is mandatory with this authentication mode (otp_sms).') {
+    //         return 'Missing mandatory field';
+    //     }
 
-        if ($reason == 'This value is not a valid phone number.') {
-            return 'Not valid';
-        }
+    //     if ($reason == 'This value is not a valid phone number.') {
+    //         return 'Not valid';
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 }

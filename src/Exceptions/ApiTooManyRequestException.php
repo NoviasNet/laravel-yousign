@@ -13,8 +13,6 @@ class ApiTooManyRequestException extends ApiException
     {
         parent::__construct($response, $message, $httpCode, $previous);
 
-        dd($rateLimit);
-
         $this->rateLimit = $rateLimit;
     }
 

@@ -10,12 +10,19 @@ use Illuminate\Http\Client\RequestException;
 use Assiclick\Yousign\Exceptions\ApiException;
 use Assiclick\Yousign\Exceptions\SignerException;
 use Assiclick\Yousign\Exceptions\Handlers\AbstractErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\NotFoundErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\ForbiddenErrorHandler;
 use Assiclick\Yousign\Exceptions\Handlers\BadRequestErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\UnauthorizedErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\ServiceUnavailableHandler;
+use Assiclick\Yousign\Exceptions\Handlers\InternalServerErrorHandler;
 use Assiclick\Yousign\Exceptions\Handlers\TooManyRequestErrorHandler;
 
 class Client
 {
     const HTTP_NETWORK_ERROR_CODE = 0;
+
+    const HTTP_BAD_REQUEST = 400;
 
     const HTTP_UNAUTHORIZED = 401;
 
@@ -23,13 +30,9 @@ class Client
 
     const HTTP_NOT_FOUND_ERROR_CODE = 404;
 
-    const HTTP_BAD_REQUEST = 400;
-
-    const HTTP_UNPROCESSABLE_ENTITY = 422;
-
     const HTTP_TOO_MANY_REQUEST = 429;
 
-    const HTTP_SERVER_ERROR = 500;
+    const HTTP_INTERNAL_SERVER_ERROR = 500;
 
     const HTTP_SERVICE_UNAVAILABLE = 503;
 
@@ -50,13 +53,13 @@ class Client
             throw new Exception('You need to pass API Key');
         }
 
-        // $this->setErrorHandler(self::HTTP_NETWORK_ERROR_CODE, new NetworkErrorHandler($this));
-        // $this->setErrorHandler(self::HTTP_UNAUTHORIZED, new UnauthorizedErrorHandler($this));
-        // $this->setErrorHandler(self::HTTP_FORBIDDEN, new ForbiddenErrorHandler($this));
-        // $this->setErrorHandler(self::HTTP_NOT_FOUND_ERROR_CODE, new NotFoundErrorHandler($this));
+        $this->setErrorHandler(self::HTTP_UNAUTHORIZED, new UnauthorizedErrorHandler($this));
+        $this->setErrorHandler(self::HTTP_FORBIDDEN, new ForbiddenErrorHandler($this));
+        $this->setErrorHandler(self::HTTP_NOT_FOUND_ERROR_CODE, new NotFoundErrorHandler($this));
         $this->setErrorHandler(self::HTTP_BAD_REQUEST, new BadRequestErrorHandler($this));
-        $this->setErrorHandler(self::HTTP_UNPROCESSABLE_ENTITY, new BadRequestErrorHandler($this));
         $this->setErrorHandler(self::HTTP_TOO_MANY_REQUEST, new TooManyRequestErrorHandler($this));
+        $this->setErrorHandler(self::HTTP_INTERNAL_SERVER_ERROR, new InternalServerErrorHandler($this));
+        $this->setErrorHandler(self::HTTP_SERVICE_UNAVAILABLE, new ServiceUnavailableHandler($this));
     }
 
     /**
