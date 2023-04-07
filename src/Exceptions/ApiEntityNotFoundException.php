@@ -2,8 +2,8 @@
 
 namespace Assiclick\Yousign\Exceptions;
 
-use Throwable;
 use Illuminate\Http\Client\Response;
+use Throwable;
 
 class ApiEntityNotFoundException extends ApiException
 {

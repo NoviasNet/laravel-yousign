@@ -3,8 +3,8 @@
 namespace Assiclick\Yousign\Exceptions;
 
 use Exception;
-use Throwable;
 use Illuminate\Http\Client\Response;
+use Throwable;
 
 class ApiException extends Exception
 {

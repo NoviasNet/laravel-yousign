@@ -2,21 +2,21 @@
 
 namespace Assiclick\Yousign\Http;
 
+use Assiclick\Yousign\Exceptions\ApiException;
+use Assiclick\Yousign\Exceptions\Handlers\AbstractErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\BadRequestErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\ForbiddenErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\InternalServerErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\NotFoundErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\ServiceUnavailableHandler;
+use Assiclick\Yousign\Exceptions\Handlers\TooManyRequestErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\UnauthorizedErrorHandler;
+use Assiclick\Yousign\Exceptions\SignerException;
 use Exception;
-use Illuminate\Http\Client\Response;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\RequestException;
-use Assiclick\Yousign\Exceptions\ApiException;
-use Assiclick\Yousign\Exceptions\SignerException;
-use Assiclick\Yousign\Exceptions\Handlers\AbstractErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\NotFoundErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\ForbiddenErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\BadRequestErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\UnauthorizedErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\ServiceUnavailableHandler;
-use Assiclick\Yousign\Exceptions\Handlers\InternalServerErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\TooManyRequestErrorHandler;
+use Illuminate\Http\Client\Response;
+use Illuminate\Support\Facades\Http;
 
 class Client
 {
@@ -69,7 +69,7 @@ class Client
      */
     public function request(string $method = 'post', string $url = '', array $data = [], string $return = 'json', ?string $attachment = null)// : ?array
     {
-        $requestUrl = $this->baseUrl . '/' . $url;
+        $requestUrl = $this->baseUrl.'/'.$url;
 
         $http = Http::withToken($this->apiKey);
 
@@ -104,8 +104,6 @@ class Client
      * Define or remove an error handler for the request.
      * Pass null to remove an existing handler.
      *
-     * @param int                       $code
-     * @param AbstractErrorHandler|null $handler
      *
      * @return $this
      */
