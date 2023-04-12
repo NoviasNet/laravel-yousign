@@ -2,8 +2,8 @@
 
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
-use Assiclick\Yousign\Exceptions\YousignException;
 use Assiclick\Yousign\Exceptions\YousignBadRequestException;
+use Assiclick\Yousign\Exceptions\YousignException;
 
 /**
  * Class BadRequestErrorHandler.
@@ -28,7 +28,7 @@ class BadRequestErrorHandler extends AbstractErrorHandler
     protected function handleErrorMessages(array $params)
     {
         return collect($params)->map(function ($param) {
-            return $param['name'] . ': ' . $param['reason'];
+            return $param['name'].': '.$param['reason'];
         })->implode(', ');
     }
 

@@ -2,8 +2,8 @@
 
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
-use Assiclick\Yousign\Exceptions\YousignException;
 use Assiclick\Yousign\Exceptions\YousignEntityNotFoundException;
+use Assiclick\Yousign\Exceptions\YousignException;
 
 class NotFoundErrorHandler extends AbstractErrorHandler
 {

@@ -2,18 +2,18 @@
 
 namespace Assiclick\Yousign\Http;
 
+use Assiclick\Yousign\Exceptions\Handlers\AbstractErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\BadRequestErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\ForbiddenErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\InternalServerErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\NotFoundErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\ServiceUnavailableHandler;
+use Assiclick\Yousign\Exceptions\Handlers\TooManyRequestErrorHandler;
+use Assiclick\Yousign\Exceptions\Handlers\UnauthorizedErrorHandler;
+use Assiclick\Yousign\Exceptions\YousignException;
 use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Assiclick\Yousign\Exceptions\YousignException;
-use Assiclick\Yousign\Exceptions\Handlers\AbstractErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\NotFoundErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\ForbiddenErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\BadRequestErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\UnauthorizedErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\ServiceUnavailableHandler;
-use Assiclick\Yousign\Exceptions\Handlers\InternalServerErrorHandler;
-use Assiclick\Yousign\Exceptions\Handlers\TooManyRequestErrorHandler;
 
 class Client
 {
@@ -66,7 +66,7 @@ class Client
      */
     public function request(string $method = 'post', string $url = '', array $data = [], string $return = 'json', ?string $attachment = null)// : ?array
     {
-        $requestUrl = $this->baseUrl . '/' . $url;
+        $requestUrl = $this->baseUrl.'/'.$url;
 
         $http = Http::withToken($this->apiKey);
 
