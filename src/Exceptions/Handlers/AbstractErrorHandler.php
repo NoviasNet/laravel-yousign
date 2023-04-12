@@ -27,26 +27,17 @@ abstract class AbstractErrorHandler
 
     /**
      * AbstractErrorHandler constructor.
-     * @param Client $client
      */
     public function __construct(Client $client)
     {
         $this->client = $client;
     }
 
-    /**
-     * @return int
-     */
     public function getMaxTries(): int
     {
         return $this->maxTries;
     }
 
-    /**
-     * @param int $maxTries
-     *
-     * @return AbstractErrorHandler
-     */
     public function setMaxTries(int $maxTries): self
     {
         $this->maxTries = $maxTries;
@@ -56,7 +47,7 @@ abstract class AbstractErrorHandler
 
     /**
      * @param YousignException $exception
-     * @param array        $requestArguments
+     * @param array            $requestArguments
      *
      * @return mixed
      *

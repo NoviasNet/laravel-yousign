@@ -101,8 +101,6 @@ class Client
      * Define or remove an error handler for the request.
      * Pass null to remove an existing handler.
      *
-     * @param int                       $code
-     * @param AbstractErrorHandler|null $handler
      *
      * @return $this
      */
