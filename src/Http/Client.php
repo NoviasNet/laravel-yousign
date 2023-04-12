@@ -5,10 +5,7 @@ namespace Assiclick\Yousign\Http;
 use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Http\Client\PendingRequest;
-use Illuminate\Http\Client\RequestException;
-use Assiclick\Yousign\Exceptions\ApiException;
-use Assiclick\Yousign\Exceptions\SignerException;
+use Assiclick\Yousign\Exceptions\YousignException;
 use Assiclick\Yousign\Exceptions\Handlers\AbstractErrorHandler;
 use Assiclick\Yousign\Exceptions\Handlers\NotFoundErrorHandler;
 use Assiclick\Yousign\Exceptions\Handlers\ForbiddenErrorHandler;
@@ -142,7 +139,7 @@ class Client
 
         $responseObj = $response->object();
 
-        $exception = new ApiException(
+        $exception = new YousignException(
             $response,
             sprintf(
                 'The request ended on a %s code : %s - %s',
@@ -159,51 +156,4 @@ class Client
 
         throw $exception;
     }
-
-    /*
-
-    private function handleSignersExceptions(array $data, $response)
-    {
-        if ($response->type == 'parameters_not_valid') {
-            $message = $this->handleErrorMessages($response->invalid_params);
-
-            throw new SignerException($message);
-        }
-    }
-
-    private function getRetryWaitTime(Response $response): int
-    {
-        $hourLimit = $response->getHeader('x-ratelimit-limit-hour');
-
-        $minuteLimit = $response->getHeader('x-ratelimit-limit-minute');
-
-        $hourRemain = $response->getHeader('x-ratelimit-remaining-hour');
-
-        // $minuteRemain = $response->getHeader('x-ratelimit-remaining-minute');
-
-        if ($hourRemain === 0) {
-            return round($hourLimit / $minuteLimit) * 60000;
-        }
-
-        return 60000;
-    }
-
-    private function ratelimitRetry(Exception $exception, PendingRequest $request): bool
-    {
-        if (! $exception instanceof RequestException || $exception->response->status() !== 429) {
-            return false;
-        }
-
-        $this->wait = $this->getRetryWaitTime($exception->response);
-
-        $request->retry(1, $this->wait);
-
-        return true;
-    }
-
-    if (Str::endsWith($url, '/signers')) {
-                return $this->handleSignersExceptions($data, $response->object());
-            }
-
-     */
 }

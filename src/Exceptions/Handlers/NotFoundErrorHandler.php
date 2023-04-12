@@ -2,17 +2,17 @@
 
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
-use Assiclick\Yousign\Exceptions\ApiException;
-use Assiclick\Yousign\Exceptions\ApiEntityNotFoundException;
+use Assiclick\Yousign\Exceptions\YousignException;
+use Assiclick\Yousign\Exceptions\YousignEntityNotFoundException;
 
 class NotFoundErrorHandler extends AbstractErrorHandler
 {
     /**
      * {@inheritdoc}
      */
-    public function handle(ApiException $exception, array $requestArguments)
+    public function handle(YousignException $exception, array $requestArguments)
     {
-        throw new ApiEntityNotFoundException(
+        throw new YousignEntityNotFoundException(
             $exception->getResponse(),
             $exception->getMessage(),
             $exception->getCode(),

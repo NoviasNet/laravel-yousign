@@ -2,8 +2,8 @@
 
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
-use Assiclick\Yousign\Exceptions\ApiException;
-use Assiclick\Yousign\Exceptions\ApiTooManyRequestException;
+use Assiclick\Yousign\Exceptions\YousignException;
+use Assiclick\Yousign\Exceptions\YousignTooManyRequestException;
 
 /**
  * Class TooManyRequestErrorHandler.
@@ -13,9 +13,9 @@ class TooManyRequestErrorHandler extends AbstractErrorHandler
     /**
      * {@inheritdoc}
      */
-    public function handle(ApiException $exception, array $requestArguments)
+    public function handle(YousignException $exception, array $requestArguments)
     {
-        throw new ApiTooManyRequestException(
+        throw new YousignTooManyRequestException(
             $this->handleRateLimit($exception),
             $exception->getResponse(),
             $exception->getMessage(),
@@ -24,7 +24,7 @@ class TooManyRequestErrorHandler extends AbstractErrorHandler
         );
     }
 
-    protected function handleRateLimit(ApiException $exception)
+    protected function handleRateLimit(YousignException $exception)
     {
         $response = $exception->getResponse();
 

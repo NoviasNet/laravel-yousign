@@ -5,7 +5,7 @@ namespace Assiclick\Yousign\Exceptions;
 use Throwable;
 use Illuminate\Http\Client\Response;
 
-class ApiTooManyRequestException extends ApiException
+class YousignTooManyRequestException extends YousignException
 {
     protected $rateLimit;
 

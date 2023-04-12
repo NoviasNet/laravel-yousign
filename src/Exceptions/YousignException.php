@@ -6,7 +6,7 @@ use Exception;
 use Throwable;
 use Illuminate\Http\Client\Response;
 
-class ApiException extends Exception
+class YousignException extends Exception
 {
     protected $response;
 

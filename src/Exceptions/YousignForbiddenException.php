@@ -4,10 +4,10 @@ namespace Assiclick\Yousign\Exceptions;
 
 use Throwable;
 
-class ApiUnauthorizedException extends ApiException
+class YousignForbiddenException extends YousignException
 {
     public function __construct($response, $httpCode = 0, ?Throwable $previous = null)
     {
-        parent::__construct($response, 'Unauthorized', $httpCode, $previous);
+        parent::__construct($response, 'Forbidden', $httpCode, $previous);
     }
 }

@@ -2,17 +2,17 @@
 
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
-use Assiclick\Yousign\Exceptions\ApiException;
-use Assiclick\Yousign\Exceptions\ApiUnauthorizedException;
+use Assiclick\Yousign\Exceptions\YousignException;
+use Assiclick\Yousign\Exceptions\YousignUnauthorizedException;
 
 class UnauthorizedErrorHandler extends AbstractErrorHandler
 {
     /**
      * {@inheritdoc}
      */
-    public function handle(ApiException $exception, array $requestArguments)
+    public function handle(YousignException $exception, array $requestArguments)
     {
-        throw new ApiUnauthorizedException(
+        throw new YousignUnauthorizedException(
             $exception->getResponse(),
             $exception->getCode(),
             $exception->getPrevious()

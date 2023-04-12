@@ -4,7 +4,7 @@ namespace Assiclick\Yousign\Exceptions;
 
 use Throwable;
 
-class ApiBadRequestException extends ApiException
+class YousignBadRequestException extends YousignException
 {
     public function __construct($response, $message, $httpCode = 0, ?Throwable $previous = null)
     {

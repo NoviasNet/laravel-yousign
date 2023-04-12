@@ -2,8 +2,8 @@
 
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
-use Assiclick\Yousign\Exceptions\ApiException;
-use Assiclick\Yousign\Exceptions\ApiBadRequestException;
+use Assiclick\Yousign\Exceptions\YousignException;
+use Assiclick\Yousign\Exceptions\YousignBadRequestException;
 
 /**
  * Class BadRequestErrorHandler.
@@ -13,11 +13,11 @@ class BadRequestErrorHandler extends AbstractErrorHandler
     /**
      * {@inheritdoc}
      */
-    public function handle(ApiException $exception, array $requestArguments)
+    public function handle(YousignException $exception, array $requestArguments)
     {
         $message = $this->handleErrorMessages($exception->getResponse()->json('invalid_params'));
 
-        throw new ApiBadRequestException(
+        throw new YousignBadRequestException(
             $exception->getResponse(),
             $message,
             $exception->getCode(),

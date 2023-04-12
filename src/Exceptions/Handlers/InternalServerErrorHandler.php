@@ -2,17 +2,17 @@
 
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
-use Assiclick\Yousign\Exceptions\ApiException;
-use Assiclick\Yousign\Exceptions\ApiInternalServerErrorException;
+use Assiclick\Yousign\Exceptions\YousignException;
+use Assiclick\Yousign\Exceptions\YousignInternalServerErrorException;
 
 class InternalServerErrorHandler extends AbstractErrorHandler
 {
     /**
      * {@inheritdoc}
      */
-    public function handle(ApiException $exception, array $requestArguments)
+    public function handle(YousignException $exception, array $requestArguments)
     {
-        throw new ApiInternalServerErrorException(
+        throw new YousignInternalServerErrorException(
             $exception->getResponse(),
             $exception->getCode(),
             $exception->getPrevious()

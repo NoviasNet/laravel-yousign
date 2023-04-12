@@ -3,7 +3,7 @@
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
 use Assiclick\Yousign\Http\Client;
-use Assiclick\Yousign\Exceptions\ApiException;
+use Assiclick\Yousign\Exceptions\YousignException;
 
 /**
  * Class AbstractErrorHandler.
@@ -55,12 +55,12 @@ abstract class AbstractErrorHandler
     }
 
     /**
-     * @param ApiException $exception
+     * @param YousignException $exception
      * @param array        $requestArguments
      *
      * @return mixed
      *
-     * @throws ApiException
+     * @throws YousignException
      */
-    abstract public function handle(ApiException $exception, array $requestArguments);
+    abstract public function handle(YousignException $exception, array $requestArguments);
 }
