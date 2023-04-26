@@ -2,8 +2,8 @@
 
 namespace Assiclick\Yousign\Exceptions\Handlers;
 
-use Assiclick\Yousign\Http\Client;
 use Assiclick\Yousign\Exceptions\YousignException;
+use Assiclick\Yousign\Http\Client;
 
 /**
  * Class AbstractErrorHandler.
