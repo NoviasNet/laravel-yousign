@@ -2,22 +2,22 @@
 
 namespace Assiclick\Yousign\Exceptions;
 
-use Illuminate\Http\Client\Response;
 use Throwable;
+use Illuminate\Http\Client\Response;
 
 class YousignTooManyRequestException extends YousignException
 {
-    protected $rateLimit;
+    protected $secondRemaining;
 
-    public function __construct(array $rateLimit, Response $response, $message, $httpCode = 0, ?Throwable $previous = null)
+    public function __construct(int $secondRemaining, Response $response, $message, $httpCode = 0, ?Throwable $previous = null)
     {
         parent::__construct($response, $message, $httpCode, $previous);
 
-        $this->rateLimit = $rateLimit;
+        $this->secondRemaining = $secondRemaining;
     }
 
-    public function getRateLimit(): ?array
+    public function getSecondRemaining(): ?int
     {
-        return $this->rateLimit;
+        return $this->secondRemaining;
     }
 }

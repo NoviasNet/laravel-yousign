@@ -13,6 +13,7 @@ class ServiceUnavailableHandler extends AbstractErrorHandler
     public function handle(YousignException $exception, array $requestArguments)
     {
         throw new YousignServiceUnavailableException(
+            $this->handleRetryAfter($exception),
             $exception->getResponse(),
             $exception->getCode(),
             $exception->getPrevious()
