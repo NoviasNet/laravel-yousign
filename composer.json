@@ -28,6 +28,7 @@
         "psr/simple-cache": "^1.0|^2.0|^3.0"
     },
     "require-dev": {
+        "driftingly/rector-laravel": "^1.2",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^6.0",
         "nunomaduro/larastan": "^2.0.1",
@@ -38,6 +39,7 @@
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^9.5",
+        "rector/rector": "^1.2",
         "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
