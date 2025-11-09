@@ -15,7 +15,7 @@ class Config
 
         throw_if(empty($apiKey), InvalidConfig::missingApiKey());
 
-        throw_if(! is_string($apiKey), InvalidConfig::wrongStringParam('api_key'));
+        throw_if(!is_string($apiKey), InvalidConfig::wrongStringParam('api_key'));
 
         return $apiKey;
     }
@@ -29,7 +29,7 @@ class Config
 
         // throw_if(empty($brandingId), InvalidConfig::missingBrandingId());
 
-        throw_if(! is_string($brandingId), InvalidConfig::wrongStringParam('branding_id'));
+        throw_if(!is_string($brandingId), InvalidConfig::wrongStringParam('branding_id'));
 
         return $brandingId;
     }
@@ -38,7 +38,7 @@ class Config
     {
         $baseUrl = config('yousign.base_url');
 
-        throw_if(! is_string($baseUrl), InvalidConfig::wrongStringParam('endpoint'));
+        throw_if(!is_string($baseUrl), InvalidConfig::wrongStringParam('endpoint'));
 
         return $baseUrl;
     }

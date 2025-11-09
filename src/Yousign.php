@@ -23,11 +23,11 @@ class Yousign
     /**
      * Return an instance of a Resource based on the method called.
      *
-     * @param  mixed  $args
+     * @param mixed $args
      */
     public function __call(string $name, $args): BaseResource
     {
-        $resource = 'NoviasNet\\Yousign\\Resources\\'.ucfirst($name);
+        $resource = 'NoviasNet\\Yousign\\Resources\\' . ucfirst($name);
 
         /* @var BaseResource */
         return new $resource($this->client, ...$args);

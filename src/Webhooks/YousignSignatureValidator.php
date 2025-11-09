@@ -27,7 +27,7 @@ class YousignSignatureValidator implements SignatureValidator
         //     return false;
         // }
 
-        $computedSignature = 'sha256='.hash_hmac('sha256', $request->getContent(), $secret);
+        $computedSignature = 'sha256=' . hash_hmac('sha256', $request->getContent(), $secret);
 
         return hash_equals($signature, $computedSignature);
     }
