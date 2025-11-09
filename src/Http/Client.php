@@ -1,8 +1,8 @@
 <?php
 
-namespace Assiclick\Yousign\Http;
+namespace NoviasNet\Yousign\Http;
 
-use Assiclick\Yousign\Exceptions\SignerException;
+use NoviasNet\Yousign\Exceptions\SignerException;
 use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Assiclick\Yousign\Webhooks;
+namespace NoviasNet\Yousign\Webhooks;
 
 use Exception;
 use Illuminate\Http\Request;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Assiclick\Yousign\Resources;
+namespace NoviasNet\Yousign\Resources;
 
-use Assiclick\Yousign\Http\Client;
+use NoviasNet\Yousign\Http\Client;
 
 abstract class Resource extends BaseResource
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Assiclick\Yousign\Factories;
+namespace NoviasNet\Yousign\Factories;
 
-use Assiclick\Yousign\Yousign;
+use NoviasNet\Yousign\Yousign;
 use Exception;
 
 class YousignFactory

@@ -1,9 +1,9 @@
 <?php
 
-namespace Assiclick\Yousign;
+namespace NoviasNet\Yousign;
 
-use Assiclick\Yousign\Commands\YousignCommand;
-use Assiclick\Yousign\Factories\YousignFactory;
+use NoviasNet\Yousign\Commands\YousignCommand;
+use NoviasNet\Yousign\Factories\YousignFactory;
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -25,7 +25,7 @@ class YousignServiceProvider extends PackageServiceProvider
         // ->hasCommand(YousignCommand::class);
 
         Route::macro('yousignWebhooks', function ($url) {
-            return Route::post($url, '\Assiclick\Yousign\Webhooks\YousignWebhooksController');
+            return Route::post($url, '\NoviasNet\Yousign\Webhooks\YousignWebhooksController');
         });
     }
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Assiclick\Yousign;
+namespace NoviasNet\Yousign;
 
-use Assiclick\Yousign\Http\Client;
-use Assiclick\Yousign\Resources\BaseResource;
+use NoviasNet\Yousign\Http\Client;
+use NoviasNet\Yousign\Resources\BaseResource;
 use Exception;
 
 class Yousign
@@ -27,7 +27,7 @@ class Yousign
      */
     public function __call(string $name, $args): BaseResource
     {
-        $resource = 'Assiclick\\Yousign\\Resources\\'.ucfirst($name);
+        $resource = 'NoviasNet\\Yousign\\Resources\\'.ucfirst($name);
 
         /* @var BaseResource */
         return new $resource($this->client, ...$args);

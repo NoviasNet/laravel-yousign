@@ -1,6 +1,6 @@
 <?php
 
-namespace Assiclick\Yousign\Exceptions;
+namespace NoviasNet\Yousign\Exceptions;
 
 use RuntimeException;
 

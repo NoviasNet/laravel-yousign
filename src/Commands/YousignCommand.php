@@ -1,6 +1,6 @@
 <?php
 
-namespace Assiclick\Yousign\Commands;
+namespace NoviasNet\Yousign\Commands;
 
 use Illuminate\Console\Command;
 

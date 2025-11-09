@@ -1,6 +1,6 @@
 <?php
 
-// config for Assiclick/Yousign
+// config for NoviasNet/Yousign
 return [
     /*
      * Yousign API uses API keys to authenticate calls. You can manage those in your [Developer Dashboard](https://yousign.app/auth/settings/apikeys).
@@ -55,7 +55,7 @@ return [
         /*
          * This class determines if the webhook call should be stored and processed.
          */
-        'profile' => \Assiclick\Yousign\Webhooks\YousingWebhookProfile::class,
+        'profile' => \NoviasNet\Yousign\Webhooks\YousingWebhookProfile::class,
 
         /*
          * When disabled, the package will not verify if the signature is valid.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Assiclick\Yousign\Webhooks;
+namespace NoviasNet\Yousign\Webhooks;
 
 use Illuminate\Http\Request;
 use Spatie\WebhookClient\Models\WebhookCall;

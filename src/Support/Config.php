@@ -1,8 +1,8 @@
 <?php
 
-namespace Assiclick\Yousign\Support;
+namespace NoviasNet\Yousign\Support;
 
-use Assiclick\Yousign\Exceptions\InvalidConfig;
+use NoviasNet\Yousign\Exceptions\InvalidConfig;
 
 class Config
 {

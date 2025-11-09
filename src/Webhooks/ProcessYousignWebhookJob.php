@@ -1,8 +1,8 @@
 <?php
 
-namespace Assiclick\Yousign\Webhooks;
+namespace NoviasNet\Yousign\Webhooks;
 
-use Assiclick\Yousign\Exceptions\WebhookFailed;
+use NoviasNet\Yousign\Exceptions\WebhookFailed;
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob;
 
 class ProcessYousignWebhookJob extends ProcessWebhookJob
