@@ -1,10 +1,4 @@
 # A simple laravel wrapper for Yousign API v3
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/assiclick/laravel-yousign.svg?style=flat-square)](https://packagist.org/packages/assiclick/laravel-yousign)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/assiclick/laravel-yousign/run-tests?label=tests)](https://github.com/assiclick/laravel-yousign/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/assiclick/laravel-yousign/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/assiclick/laravel-yousign/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/assiclick/laravel-yousign.svg?style=flat-square)](https://packagist.org/packages/assiclick/laravel-yousign)
-
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Support us
@@ -20,7 +14,7 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require assiclick/laravel-yousign
+composer require noviasnet/laravel-yousign
 ```
 
 You can publish and run the migrations with:
@@ -69,8 +63,8 @@ php artisan vendor:publish --tag="laravel-yousign-views"
 ## Usage
 
 ```php
-$yousign = new Assiclick\Yousign();
-echo $yousign->echoPhrase('Hello, Assiclick!');
+$yousign = new NoviasNet\Yousign();
+echo $yousign->echoPhrase('Hello, NoviasNet!');
 ```
 
 ## Testing
@@ -93,7 +87,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Gabriele Pistoia](https://github.com/Assiclick)
+- [Gabriele Pistoia](https://github.com/NoviasNet)
 - [All Contributors](../../contributors)
 
 ## License
