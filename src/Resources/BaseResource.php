@@ -1,8 +1,8 @@
 <?php
 
-namespace Assiclick\Yousign\Resources;
+namespace NoviasNet\Yousign\Resources;
 
-use Assiclick\Yousign\Http\Client;
+use NoviasNet\Yousign\Http\Client;
 
 abstract class BaseResource
 {
@@ -22,7 +22,7 @@ abstract class BaseResource
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$url,
+            $this->path . '/' . $url,
             []
         )['data'];
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Assiclick\Yousign\Resources;
+namespace NoviasNet\Yousign\Resources;
 
-use Assiclick\Yousign\Http\Client;
+use NoviasNet\Yousign\Http\Client;
 
 abstract class Resource extends BaseResource
 {
@@ -36,7 +36,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'patch',
-            $this->path.'/'.$this->id,
+            $this->path . '/' . $this->id,
             $this->parseObjArray($data)
         );
     }
@@ -45,7 +45,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'delete',
-            $this->path.'/'.$this->id,
+            $this->path . '/' . $this->id,
             []
         );
     }
@@ -54,7 +54,7 @@ abstract class Resource extends BaseResource
     {
         return $this->client->request(
             'get',
-            $this->path.'/'.$this->id,
+            $this->path . '/' . $this->id,
             []
         );
     }

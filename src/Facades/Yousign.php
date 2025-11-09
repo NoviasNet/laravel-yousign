@@ -1,6 +1,6 @@
 <?php
 
-namespace Assiclick\Yousign\Facades;
+namespace NoviasNet\Yousign\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -8,6 +8,6 @@ class Yousign extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Assiclick\Yousign\Yousign::class;
+        return \NoviasNet\Yousign\Yousign::class;
     }
 }

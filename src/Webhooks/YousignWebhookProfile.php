@@ -1,6 +1,6 @@
 <?php
 
-namespace Assiclick\Yousign\Webhooks;
+namespace NoviasNet\Yousign\Webhooks;
 
 use Illuminate\Http\Request;
 use Spatie\WebhookClient\Models\WebhookCall;
@@ -10,6 +10,6 @@ class YousignWebhookProfile implements WebhookProfile
 {
     public function shouldProcess(Request $request): bool
     {
-        return ! WebhookCall::where('event_name', 'yousign')->where('payload->id', $request->get('id'))->exists();
+        return !WebhookCall::where('event_name', 'yousign')->where('payload->id', $request->get('id'))->exists();
     }
 }

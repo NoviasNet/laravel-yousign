@@ -1,6 +1,6 @@
 <?php
 
-namespace Assiclick\Yousign\Database\Factories;
+namespace NoviasNet\Yousign\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

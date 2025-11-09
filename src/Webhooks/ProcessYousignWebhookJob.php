@@ -1,15 +1,15 @@
 <?php
 
-namespace Assiclick\Yousign\Webhooks;
+namespace NoviasNet\Yousign\Webhooks;
 
-use Assiclick\Yousign\Exceptions\WebhookFailed;
+use NoviasNet\Yousign\Exceptions\WebhookFailed;
 use Spatie\WebhookClient\Jobs\ProcessWebhookJob;
 
 class ProcessYousignWebhookJob extends ProcessWebhookJob
 {
     public function handle()
     {
-        if (! isset($this->webhookCall->payload['event_name']) || $this->webhookCall->payload['event_name'] === '') {
+        if (!isset($this->webhookCall->payload['event_name']) || $this->webhookCall->payload['event_name'] === '') {
             throw WebhookFailed::missingEvent($this->webhookCall);
         }
 
@@ -21,7 +21,7 @@ class ProcessYousignWebhookJob extends ProcessWebhookJob
             return;
         }
 
-        if (! class_exists($jobClass)) {
+        if (!class_exists($jobClass)) {
             throw WebhookFailed::jobClassDoesNotExist($jobClass, $this->webhookCall);
         }
 

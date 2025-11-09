@@ -1,9 +1,9 @@
 <?php
 
-namespace Assiclick\Yousign\Factories;
+namespace NoviasNet\Yousign\Factories;
 
-use Assiclick\Yousign\Http\Client;
-use Assiclick\Yousign\Support\Config;
+use NoviasNet\Yousign\Http\Client;
+use NoviasNet\Yousign\Support\Config;
 
 class YousignClientFactory
 {

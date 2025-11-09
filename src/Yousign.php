@@ -1,10 +1,10 @@
 <?php
 
-namespace Assiclick\Yousign;
+namespace NoviasNet\Yousign;
 
-use Assiclick\Yousign\Http\Client;
-use Assiclick\Yousign\Resources\BaseResource;
 use Exception;
+use NoviasNet\Yousign\Http\Client;
+use NoviasNet\Yousign\Resources\BaseResource;
 
 class Yousign
 {
@@ -23,11 +23,11 @@ class Yousign
     /**
      * Return an instance of a Resource based on the method called.
      *
-     * @param  mixed  $args
+     * @param mixed $args
      */
     public function __call(string $name, $args): BaseResource
     {
-        $resource = 'Assiclick\\Yousign\\Resources\\'.ucfirst($name);
+        $resource = 'NoviasNet\\Yousign\\Resources\\' . ucfirst($name);
 
         /* @var BaseResource */
         return new $resource($this->client, ...$args);

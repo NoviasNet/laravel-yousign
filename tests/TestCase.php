@@ -1,8 +1,8 @@
 <?php
 
-namespace Assiclick\Yousign\Tests;
+namespace NoviasNet\Yousign\Tests;
 
-use Assiclick\Yousign\YousignServiceProvider;
+use NoviasNet\Yousign\YousignServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Assiclick\\Yousign\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'NoviasNet\\Yousign\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

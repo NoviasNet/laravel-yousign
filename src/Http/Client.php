@@ -1,11 +1,11 @@
 <?php
 
-namespace Assiclick\Yousign\Http;
+namespace NoviasNet\Yousign\Http;
 
-use Assiclick\Yousign\Exceptions\SignerException;
 use Exception;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
+use NoviasNet\Yousign\Exceptions\SignerException;
 
 class Client
 {
@@ -29,11 +29,11 @@ class Client
      */
     public function request(string $method = 'post', string $url = '', array $data = [], string $return = 'json', ?string $attachment = null)// : ?array
     {
-        $requestUrl = $this->baseUrl.'/'.$url;
+        $requestUrl = $this->baseUrl . '/' . $url;
 
         $http = Http::withToken($this->apiKey);
 
-        if (! is_null($attachment)) {
+        if (!is_null($attachment)) {
             $http->attach(
                 'file',
                 file_get_contents($attachment),
@@ -74,7 +74,7 @@ class Client
         // dd($params);
 
         return collect($params)->map(function ($param) {
-            return $this->convertErrorName($param->name).' - '.$this->convertErrorReason($param->reason);
+            return $this->convertErrorName($param->name) . ' - ' . $this->convertErrorReason($param->reason);
         })->implode(', ');
     }
 

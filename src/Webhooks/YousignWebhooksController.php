@@ -1,6 +1,6 @@
 <?php
 
-namespace Assiclick\Yousign\Webhooks;
+namespace NoviasNet\Yousign\Webhooks;
 
 use Illuminate\Http\Request;
 use Spatie\WebhookClient\WebhookConfig;
@@ -13,7 +13,7 @@ class YousignWebhooksController
         $webhookConfig = new WebhookConfig([
             'name' => 'yousign',
             'signing_secret' => ($configKey) ?
-                config('yousign.webhooks.signing_secret_'.$configKey) :
+                config('yousign.webhooks.signing_secret_' . $configKey) :
                 config('yousign.webhooks.signing_secret'),
             'signature_header_name' => 'x-yousign-signature-256',
             'signature_validator' => YousignSignatureValidator::class,

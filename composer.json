@@ -1,22 +1,22 @@
 {
-    "name": "assiclick/laravel-yousign",
+    "name": "noviasnet/laravel-yousign",
     "description": "A simple laravel wrapper for Yousign API v3",
     "keywords": [
-        "Assiclick",
+        "NoviasNet",
         "laravel",
         "laravel-yousign"
     ],
-    "homepage": "https://github.com/assiclick/laravel-yousign",
+    "homepage": "https://github.com/NoviasNet/laravel-yousign",
     "license": "MIT",
     "authors": [
         {
             "name": "Gabriele Sbaiz",
-            "email": "gabriele@sbaiz.com",
+            "email": "gabriele.sbaiz@noviasnet.it",
             "role": "Developer"
         },
         {
             "name": "Gabriele Pistoia",
-            "email": "gabriele.pistoia@assiclick.com",
+            "email": "gabriele.pistoia@noviasnet.it",
             "role": "Developer"
         }
     ],
@@ -28,6 +28,7 @@
         "psr/simple-cache": "^1.0|^2.0|^3.0"
     },
     "require-dev": {
+        "driftingly/rector-laravel": "^1.2",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^6.0",
         "nunomaduro/larastan": "^2.0.1",
@@ -38,17 +39,18 @@
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^9.5",
+        "rector/rector": "^1.2",
         "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
         "psr-4": {
-            "Assiclick\\Yousign\\": "src",
-            "Assiclick\\Yousign\\Database\\Factories\\": "database/factories"
+            "NoviasNet\\Yousign\\": "src",
+            "NoviasNet\\Yousign\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Assiclick\\Yousign\\Tests\\": "tests"
+            "NoviasNet\\Yousign\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -68,10 +70,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Assiclick\\Yousign\\YousignServiceProvider"
+                "NoviasNet\\Yousign\\YousignServiceProvider"
             ],
             "aliases": {
-                "Yousign": "Assiclick\\Yousign\\Facades\\Yousign"
+                "Yousign": "NoviasNet\\Yousign\\Facades\\Yousign"
             }
         }
     },
