@@ -2,9 +2,9 @@
 
 namespace NoviasNet\Yousign;
 
+use Exception;
 use NoviasNet\Yousign\Http\Client;
 use NoviasNet\Yousign\Resources\BaseResource;
-use Exception;
 
 class Yousign
 {

@@ -2,8 +2,8 @@
 
 namespace NoviasNet\Yousign\Factories;
 
-use NoviasNet\Yousign\Yousign;
 use Exception;
+use NoviasNet\Yousign\Yousign;
 
 class YousignFactory
 {

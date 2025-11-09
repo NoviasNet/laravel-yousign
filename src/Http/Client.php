@@ -2,10 +2,10 @@
 
 namespace NoviasNet\Yousign\Http;
 
-use NoviasNet\Yousign\Exceptions\SignerException;
 use Exception;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
+use NoviasNet\Yousign\Exceptions\SignerException;
 
 class Client
 {

@@ -4,14 +4,14 @@ namespace NoviasNet\Yousign\Webhooks;
 
 use Exception;
 use Illuminate\Http\Request;
-use Spatie\WebhookClient\SignatureValidator\SignatureValidator;
 use Spatie\WebhookClient\WebhookConfig;
+use Spatie\WebhookClient\SignatureValidator\SignatureValidator;
 
 class YousignSignatureValidator implements SignatureValidator
 {
     public function isValid(Request $request, WebhookConfig $config): bool
     {
-        if (! config('yousign.webhooks.verify_signature')) {
+        if (!config('yousign.webhooks.verify_signature')) {
             return true;
         }
 
