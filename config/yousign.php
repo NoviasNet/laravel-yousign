@@ -55,7 +55,7 @@ return [
         /*
          * This class determines if the webhook call should be stored and processed.
          */
-        'profile' => \NoviasNet\Yousign\Webhooks\YousingWebhookProfile::class,
+        'profile' => \NoviasNet\Yousign\Webhooks\YousignWebhookProfile::class,
 
         /*
          * When disabled, the package will not verify if the signature is valid.
