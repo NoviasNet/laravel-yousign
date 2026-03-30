@@ -55,8 +55,6 @@ class SignatureRequest extends Resource
 
     /**
      * Download signature request audit trails.
-     *
-     * @return string
      */
     public function downloadAudit(): Response
     {
@@ -150,8 +148,6 @@ class SignatureRequest extends Resource
 
     /**
      * Download signature request documents.
-     *
-     * @param string $documentId Document Id
      */
     public function downloadDocuments(array $data = []): Response
     {
