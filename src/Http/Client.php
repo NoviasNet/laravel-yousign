@@ -15,7 +15,7 @@ class Client
      *
      * @throws Exception
      */
-    public function __construct(private string $apiKey = '', private string $baseUrl = '', private string $brandingId = '')
+    public function __construct(private string $apiKey = '', private string $baseUrl = '')
     {
         if (empty($apiKey)) {
             throw new Exception('You need to pass API Key');
