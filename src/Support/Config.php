@@ -3,6 +3,7 @@
 namespace NoviasNet\Yousign\Support;
 
 use NoviasNet\Yousign\Exceptions\InvalidConfig;
+use Throwable;
 
 class Config
 {
