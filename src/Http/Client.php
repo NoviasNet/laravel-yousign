@@ -45,7 +45,7 @@ class Client
 
         if ($response->failed()) {
             if (Str::endsWith($url, '/signers')) {
-                return $this->handleSignersExceptions($data, $response->object());
+                return $this->handleSignersExceptions($response->object());
             }
         }
 
@@ -60,7 +60,7 @@ class Client
         return $response->throw()->{$return}();
     }
 
-    private function handleSignersExceptions(array $data, $response)
+    private function handleSignersExceptions($response)
     {
         if ($response->type == 'parameters_not_valid') {
             $message = $this->handleErrorMessages($response->invalid_params);
