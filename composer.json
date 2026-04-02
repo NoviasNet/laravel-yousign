@@ -42,8 +42,7 @@
     },
     "autoload": {
         "psr-4": {
-            "NoviasNet\\Yousign\\": "src",
-            "NoviasNet\\Yousign\\Database\\Factories\\": "database/factories"
+            "NoviasNet\\Yousign\\": "src"
         }
     },
     "autoload-dev": {
