@@ -15,11 +15,6 @@ return [
      */
     'base_url' => env('YOUSIGN_BASE_URL', 'https://api-sandbox.yousign.app/v3'),
 
-    /*
-     * ID of the Branding to be used, found in your [Branding Dashboard](https://yousign.app/auth/settings/brandings)
-     */
-    'branding_id' => env('YOUSIGN_BRANDING_ID', ''),
-
     'webhooks' => [
         /*
          * Yousign will sign each webhook using a secret. You can find the used secret at the
