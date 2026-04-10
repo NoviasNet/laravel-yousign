@@ -9,17 +9,7 @@ class SignatureRequest extends Resource
 {
     protected string $path = 'signature_requests';
 
-    /**
-     * Initialize Resource.
-     */
-    public function __construct(Client $client, string $id = '')
-    {
-        parent::__construct($client, $id);
-    }
-
-    /**
-     * Activate a signature request.
-     */
+    /** Activate a signature request. */
     public function activate(): array
     {
         return $this->client->request(
