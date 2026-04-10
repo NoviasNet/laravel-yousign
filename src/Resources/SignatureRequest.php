@@ -165,21 +165,17 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * update a signer.
-     */
-    public function updateSigner(string $signerId): array
+    /** Update a signer. */
+    public function updateSigner(string $signerId, array $data = []): array
     {
         return $this->client->request(
             'patch',
-            $this->path.'/'.$this->id.'/signers/'.$signerId,
-            []
+            $this->path . '/' . $this->id . '/signers/' . $signerId,
+            $data
         );
     }
 
-    /**
-     * Download audit trail PDF.
-     */
+    /** Download audit trail PDF. */
     public function downloadSignerAudit(string $signerId): array
     {
         return $this->client->request(
