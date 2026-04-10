@@ -29,9 +29,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Cancel a signature request.
-     */
+    /** Cancel a signature request. */
     public function cancel(array $params): array
     {
         return $this->client->request(
@@ -41,9 +39,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Reactivate an expired signature request.
-     */
+    /** Reactivate an expired signature request. */
     public function reactive(array $params): array
     {
         return $this->client->request(
@@ -53,9 +49,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Download signature request audit trails.
-     */
+    /** Download signature request audit trails. */
     public function downloadAudit(): Response
     {
         return $this->client->request(
@@ -66,9 +60,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * List signature request documents.
-     */
+    /** List signature request documents. */
     public function getDocuments(array $params = []): array
     {
         return $this->client->request(
@@ -78,11 +70,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Get a document of Signature Request.
-     *
-     * @param  string  $documentId  Document Id
-     */
+    /** Get a document of Signature Request. */
     public function getDocument(string $documentId): array
     {
         return $this->client->request(
@@ -92,9 +80,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Add a document to the Signature Request.
-     */
+    /** Add a document to the Signature Request. */
     public function addDocument(array $data, string $attachment): array
     {
         return $this->client->request(
@@ -106,11 +92,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Delete a document of Signature Request.
-     *
-     * @param  string  $documentId  Document Id
-     */
+    /** Delete a document of Signature Request. */
     public function deleteDocument(string $documentId): array
     {
         return $this->client->request(
@@ -120,9 +102,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Update a document.
-     */
+    /** Update a document. */
     public function updateDocument(array $data): array
     {
         return $this->client->request(
@@ -132,9 +112,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Replace a document.
-     */
+    /** Replace a document. */
     public function replaceDocument(array $data, string $attachment): array
     {
         return $this->client->request(
@@ -146,9 +124,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Download signature request documents.
-     */
+    /** Download signature request documents. */
     public function downloadDocuments(array $data = []): Response
     {
         return $this->client->request(
@@ -159,9 +135,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Create a new signer.
-     */
+    /** Create a new signer. */
     public function createSigner(array $data): array
     {
         return $this->client->request(
@@ -171,9 +145,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * List signature request signers.
-     */
+    /** List signature request signers. */
     public function getSigners(): array
     {
         return $this->client->request(
@@ -183,9 +155,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Get a signer.
-     */
+    /** Get a signer. */
     public function getSigner(string $signerId): array
     {
         return $this->client->request(
@@ -195,9 +165,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Delete a signer.
-     */
+    /** Delete a signer. */
     public function deleteSigner(string $signerId): array
     {
         return $this->client->request(
@@ -231,9 +199,7 @@ class SignatureRequest extends Resource
         );
     }
 
-    /**
-     * Get signer audit trail.
-     */
+    /** Get signer audit trail. */
     public function getSignerAudit(string $signerId): array
     {
         return $this->client->request(
