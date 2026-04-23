@@ -4,6 +4,9 @@ All notable changes to `laravel-yousign` will be documented in this file.
 
 ## Unreleased
 
+### Changed
+- `updateSigner` now accepts an optional `array $data` parameter to pass update payload
+
 ### Removed
 - Removed unused `YousignCommand` placeholder class and all related references from the service provider
 - Removed unused `getBrandingId()` config accessor from `Config` and the `branding_id` config key
