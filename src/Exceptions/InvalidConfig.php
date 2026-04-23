@@ -11,11 +11,6 @@ class InvalidConfig extends RuntimeException
         return new self('You need to set api_key on yousign.php config file');
     }
 
-    // public static function missingBrandingId(): self
-    // {
-    //     return new self('You need to set branding_id on yousign.php config file');
-    // }
-
     public static function wrongStringParam(string $param): self
     {
         return new self("The param {$param} on yousign.php config file must be a string");

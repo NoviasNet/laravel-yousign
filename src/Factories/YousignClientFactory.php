@@ -12,7 +12,6 @@ class YousignClientFactory
         return new Client(
             apiKey: Config::getApiKey(),
             baseUrl: Config::getBaseUrl(),
-            brandingId: Config::getBrandingId(),
         );
     }
 }

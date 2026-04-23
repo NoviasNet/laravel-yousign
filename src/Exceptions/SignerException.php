@@ -6,16 +6,7 @@ use Exception;
 
 class SignerException extends Exception
 {
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @param  @string $message
-     * @return void
-     */
-    public function __construct($message)
+    public function __construct(string $message)
     {
         parent::__construct($message);
     }

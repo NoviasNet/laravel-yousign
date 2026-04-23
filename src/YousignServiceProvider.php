@@ -4,7 +4,6 @@ namespace NoviasNet\Yousign;
 
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
-use NoviasNet\Yousign\Commands\YousignCommand;
 use NoviasNet\Yousign\Factories\YousignFactory;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -20,9 +19,6 @@ class YousignServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-yousign')
             ->hasConfigFile();
-        // ->hasViews()
-        // ->hasMigration('create_laravel-yousign_table')
-        // ->hasCommand(YousignCommand::class);
 
         Route::macro('yousignWebhooks', function ($url) {
             return Route::post($url, '\NoviasNet\Yousign\Webhooks\YousignWebhooksController');

@@ -3,6 +3,7 @@
 namespace NoviasNet\Yousign\Support;
 
 use NoviasNet\Yousign\Exceptions\InvalidConfig;
+use Throwable;
 
 class Config
 {
@@ -23,17 +24,6 @@ class Config
     /**
      * @throws Throwable
      */
-    public static function getBrandingId(): string
-    {
-        $brandingId = config('yousign.branding_id');
-
-        // throw_if(empty($brandingId), InvalidConfig::missingBrandingId());
-
-        throw_if(!is_string($brandingId), InvalidConfig::wrongStringParam('branding_id'));
-
-        return $brandingId;
-    }
-
     public static function getBaseUrl(): string
     {
         $baseUrl = config('yousign.base_url');
