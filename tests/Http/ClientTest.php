@@ -1,10 +1,10 @@
 <?php
 
-use NoviasNet\Yousign\Http\Client;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Http\Client\RequestException;
 use NoviasNet\Yousign\Exceptions\SignerException;
+use NoviasNet\Yousign\Http\Client;
 use NoviasNet\Yousign\Resources\SignatureRequest;
 
 it('constructor throws when apiKey is empty', function () {
@@ -104,7 +104,7 @@ it('updateSigner sends a PATCH request with data', function () {
             return false;
         }
 
-        if (!str_contains($request->url(), 'signers/signer-id')) {
+        if (! str_contains($request->url(), 'signers/signer-id')) {
             return false;
         }
 

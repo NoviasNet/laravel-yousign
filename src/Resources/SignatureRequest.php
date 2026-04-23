@@ -3,7 +3,6 @@
 namespace NoviasNet\Yousign\Resources;
 
 use Illuminate\Http\Client\Response;
-use NoviasNet\Yousign\Http\Client;
 
 class SignatureRequest extends Resource
 {
@@ -170,7 +169,7 @@ class SignatureRequest extends Resource
     {
         return $this->client->request(
             'patch',
-            $this->path . '/' . $this->id . '/signers/' . $signerId,
+            $this->path.'/'.$this->id.'/signers/'.$signerId,
             $data
         );
     }
