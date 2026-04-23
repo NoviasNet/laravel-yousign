@@ -5,6 +5,7 @@ use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use NoviasNet\Yousign\Exceptions\SignerException;
 use NoviasNet\Yousign\Http\Client;
+use NoviasNet\Yousign\Resources\SignatureRequest;
 
 it('constructor throws when apiKey is empty', function () {
     expect(fn () => new Client('', 'https://api.example.com'))
@@ -84,4 +85,52 @@ it('request on non-signer failure propagates RequestException', function () {
 
     expect(fn () => $client->request('get', 'signature_requests/missing', []))
         ->toThrow(RequestException::class);
+});
+
+it('updateSigner sends a PATCH request with data', function () {
+    Http::fake([
+        '*' => Http::response(['id' => 'signer-id', 'status' => 'initiated'], 200),
+    ]);
+
+    $client = new Client('test-api-key', 'https://api.example.com');
+    $resource = new SignatureRequest($client, 'request-id');
+
+    $result = $resource->updateSigner('signer-id', [
+        'signature_level' => 'advanced_electronic_signature',
+    ]);
+
+    Http::assertSent(function ($request) {
+        if ($request->method() !== 'PATCH') {
+            return false;
+        }
+
+        if (! str_contains($request->url(), 'signers/signer-id')) {
+            return false;
+        }
+
+        return $request['signature_level'] === 'advanced_electronic_signature';
+    });
+
+    expect($result)->toBeArray()->toHaveKey('id');
+});
+
+it('updateSigner sends a PATCH request without data', function () {
+    Http::fake([
+        '*' => Http::response(['id' => 'signer-id', 'status' => 'initiated'], 200),
+    ]);
+
+    $client = new Client('test-api-key', 'https://api.example.com');
+    $resource = new SignatureRequest($client, 'request-id');
+
+    $result = $resource->updateSigner('signer-id');
+
+    Http::assertSent(function ($request) {
+        if ($request->method() !== 'PATCH') {
+            return false;
+        }
+
+        return str_contains($request->url(), 'signers/signer-id');
+    });
+
+    expect($result)->toBeArray()->toHaveKey('id');
 });
