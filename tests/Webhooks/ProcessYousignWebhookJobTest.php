@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Queue;
 use NoviasNet\Yousign\Exceptions\WebhookFailed;
@@ -7,9 +9,9 @@ use NoviasNet\Yousign\Webhooks\ProcessYousignWebhookJob;
 use Spatie\WebhookClient\Models\WebhookCall;
 
 // Minimal stub job used to verify dispatch
-class HandleSignatureRequestDone implements \Illuminate\Contracts\Queue\ShouldQueue
+class HandleSignatureRequestDone implements ShouldQueue
 {
-    use \Illuminate\Bus\Queueable;
+    use Queueable;
 
     public function __construct(public WebhookCall $webhookCall) {}
 
@@ -19,8 +21,8 @@ class HandleSignatureRequestDone implements \Illuminate\Contracts\Queue\ShouldQu
 function makeWebhookCallRecord(array $payload): WebhookCall
 {
     return WebhookCall::create([
-        'name'    => 'yousign',
-        'url'     => 'https://example.com/webhooks/yousign',
+        'name' => 'yousign',
+        'url' => 'https://example.com/webhooks/yousign',
         'headers' => [],
         'payload' => $payload,
     ]);

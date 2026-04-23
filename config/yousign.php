@@ -1,5 +1,8 @@
 <?php
 
+use NoviasNet\Yousign\Webhooks\YousignWebhookProfile;
+use Spatie\WebhookClient\Models\WebhookCall;
+
 // config for NoviasNet/Yousign
 return [
     /*
@@ -45,12 +48,12 @@ return [
          * The classname of the model to be used. The class should equal or extend
          * Spatie\WebhookClient\Models\WebhookCall.
          */
-        'model' => \Spatie\WebhookClient\Models\WebhookCall::class,
+        'model' => WebhookCall::class,
 
         /*
          * This class determines if the webhook call should be stored and processed.
          */
-        'profile' => \NoviasNet\Yousign\Webhooks\YousignWebhookProfile::class,
+        'profile' => YousignWebhookProfile::class,
 
         /*
          * When disabled, the package will not verify if the signature is valid.

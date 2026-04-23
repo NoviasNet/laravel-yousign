@@ -6,7 +6,7 @@ use Spatie\WebhookClient\Models\WebhookCall;
 
 function makeWebhookCall(int $id = 1, string $eventName = 'signature_request_done'): WebhookCall
 {
-    $webhookCall = new WebhookCall();
+    $webhookCall = new WebhookCall;
     $webhookCall->id = $id;
     $webhookCall->payload = ['event_name' => $eventName];
 

@@ -3,7 +3,6 @@
 namespace NoviasNet\Yousign\Tests;
 
 use NoviasNet\Yousign\YousignServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -24,11 +23,11 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
         config()->set('database.connections.testing', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
         ]);
 
-        $migration = include __DIR__ . '/../vendor/spatie/laravel-webhook-client/database/migrations/create_webhook_calls_table.php.stub';
+        $migration = include __DIR__.'/../vendor/spatie/laravel-webhook-client/database/migrations/create_webhook_calls_table.php.stub';
         $migration->up();
     }
 }

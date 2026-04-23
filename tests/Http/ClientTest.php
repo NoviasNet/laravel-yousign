@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use NoviasNet\Yousign\Exceptions\SignerException;
 use NoviasNet\Yousign\Http\Client;
@@ -56,7 +57,7 @@ it('request returns full response when return is full', function () {
     $client = new Client('key', 'https://api.example.com');
     $result = $client->request('get', 'something', [], 'full');
 
-    expect($result)->toBeInstanceOf(\Illuminate\Http\Client\Response::class);
+    expect($result)->toBeInstanceOf(Response::class);
     expect($result->status())->toBe(200);
 });
 

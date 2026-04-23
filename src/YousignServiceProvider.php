@@ -3,8 +3,8 @@
 namespace NoviasNet\Yousign;
 
 use Illuminate\Support\Facades\Route;
-use Spatie\LaravelPackageTools\Package;
 use NoviasNet\Yousign\Factories\YousignFactory;
+use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class YousignServiceProvider extends PackageServiceProvider
