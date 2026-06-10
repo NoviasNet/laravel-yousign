@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-yousign` will be documented in this file.
 
-## Unreleased
+## v3.1.0 - 2026-06-10
 
 ### Changed
 - `updateSigner` now accepts an optional `array $data` parameter to pass update payload
