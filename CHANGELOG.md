@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-yousign` will be documented in this file.
 
+## [Unreleased]
+
+### Fixed
+- Fixed `updateDocument` targeting `signature_requests/{id}` (same as the signature-request update) instead of the document endpoint `signature_requests/{id}/documents/{documentId}`; it now requires a `$documentId` argument
+
 ## v3.1.0 - 2026-06-10
 
 ### Changed

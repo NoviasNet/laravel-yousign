@@ -143,7 +143,7 @@ Yousign::signatureRequest($id)->replaceDocument(
 );
 
 // Update document metadata
-Yousign::signatureRequest($id)->updateDocument(['nature' => 'attachment']);
+Yousign::signatureRequest($id)->updateDocument($documentId, ['nature' => 'attachment']);
 
 // Delete a document
 Yousign::signatureRequest($id)->deleteDocument($documentId);
