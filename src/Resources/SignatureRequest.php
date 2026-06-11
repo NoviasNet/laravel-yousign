@@ -3,10 +3,20 @@
 namespace NoviasNet\Yousign\Resources;
 
 use Illuminate\Http\Client\Response;
+use NoviasNet\Yousign\DataObjects\CreateSignatureRequest;
 
 class SignatureRequest extends Resource
 {
     protected string $path = 'signature_requests';
+
+    public function create(CreateSignatureRequest|array $data): array
+    {
+        $payload = $data instanceof CreateSignatureRequest
+            ? $data->toArray()
+            : $data;
+
+        return parent::create($payload);
+    }
 
     /** Activate a signature request. */
     public function activate(): array
