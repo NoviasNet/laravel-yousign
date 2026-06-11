@@ -141,6 +141,36 @@ it('updateDocument sends a PATCH request to the document endpoint', function () 
     expect($result)->toBeArray()->toHaveKey('id');
 });
 
+it('replaceDocument sends a POST request to the replace endpoint', function () {
+    Http::fake([
+        '*' => Http::response(['id' => 'document-id'], 201),
+    ]);
+
+    $client = new Client('test-api-key', 'https://api.example.com');
+    $resource = new SignatureRequest($client, 'request-id');
+
+    $attachment = tempnam(sys_get_temp_dir(), 'yousign');
+    file_put_contents($attachment, 'pdf-bytes');
+
+    try {
+        $result = $resource->replaceDocument('document-id', [
+            'file' => 'new-file.pdf',
+        ], $attachment);
+    } finally {
+        @unlink($attachment);
+    }
+
+    Http::assertSent(function ($request) {
+        if ($request->method() !== 'POST') {
+            return false;
+        }
+
+        return str_contains($request->url(), 'signature_requests/request-id/documents/document-id/replace');
+    });
+
+    expect($result)->toBeArray()->toHaveKey('id');
+});
+
 it('updateSigner sends a PATCH request without data', function () {
     Http::fake([
         '*' => Http::response(['id' => 'signer-id', 'status' => 'initiated'], 200),

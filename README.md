@@ -136,9 +136,10 @@ Yousign::signatureRequest($id)->addDocument(
     '/path/to/file.pdf'
 );
 
-// Replace a document
+// Replace a document's file (multipart upload)
 Yousign::signatureRequest($id)->replaceDocument(
-    ['nature' => 'signable_document'],
+    $documentId,
+    ['file' => 'new-file.pdf'], // optional: 'name' => 'Contract'
     '/path/to/new-file.pdf'
 );
 

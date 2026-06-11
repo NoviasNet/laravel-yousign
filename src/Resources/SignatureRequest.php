@@ -101,12 +101,12 @@ class SignatureRequest extends Resource
         );
     }
 
-    /** Replace a document. */
-    public function replaceDocument(array $data, string $attachment): array
+    /** Replace the file of an existing document. */
+    public function replaceDocument(string $documentId, array $data, string $attachment): array
     {
         return $this->client->request(
             'post',
-            $this->path.'/'.$this->id.'/documents',
+            $this->path.'/'.$this->id.'/documents/'.$documentId.'/replace',
             $data,
             'json',
             $attachment
