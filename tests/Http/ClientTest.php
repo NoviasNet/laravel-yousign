@@ -114,6 +114,33 @@ it('updateSigner sends a PATCH request with data', function () {
     expect($result)->toBeArray()->toHaveKey('id');
 });
 
+it('updateDocument sends a PATCH request to the document endpoint', function () {
+    Http::fake([
+        '*' => Http::response(['id' => 'document-id'], 200),
+    ]);
+
+    $client = new Client('test-api-key', 'https://api.example.com');
+    $resource = new SignatureRequest($client, 'request-id');
+
+    $result = $resource->updateDocument('document-id', [
+        'nature' => 'attachment',
+    ]);
+
+    Http::assertSent(function ($request) {
+        if ($request->method() !== 'PATCH') {
+            return false;
+        }
+
+        if (! str_contains($request->url(), 'signature_requests/request-id/documents/document-id')) {
+            return false;
+        }
+
+        return $request['nature'] === 'attachment';
+    });
+
+    expect($result)->toBeArray()->toHaveKey('id');
+});
+
 it('updateSigner sends a PATCH request without data', function () {
     Http::fake([
         '*' => Http::response(['id' => 'signer-id', 'status' => 'initiated'], 200),

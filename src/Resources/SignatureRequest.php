@@ -92,12 +92,12 @@ class SignatureRequest extends Resource
     }
 
     /** Update a document. */
-    public function updateDocument(array $data): array
+    public function updateDocument(string $documentId, array $data = []): array
     {
         return $this->client->request(
             'patch',
-            $this->path.'/'.$this->id,
-            $this->parseObjArray($data)
+            $this->path.'/'.$this->id.'/documents/'.$documentId,
+            $data
         );
     }
 
